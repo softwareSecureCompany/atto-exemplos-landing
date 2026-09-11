@@ -2,7 +2,7 @@
 html { scroll-behavior: smooth; }
 html, body { background: var(--bg); color: var(--cloud); overflow-x: clip; }
 body {
-  font-family: var(--sans), Inter, sans-serif;
+  font-family: var(--sans), system-ui, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   cursor: auto;
