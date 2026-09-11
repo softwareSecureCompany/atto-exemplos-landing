@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exemplos de Landing — ATTO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bone: #f8f5f1;
+      --sand: #ede7df;
+      --stone: #a8a49f;
+      --ink: #0d0b09;
+      --muted: #504c49;
+      --border: #d4d0cb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: var(--bone);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+      font-weight: 400;
+      letter-spacing: -.005em;
+      padding: 40px 22px 88px;
+    }
+    .wrap { max-width: 1120px; margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+    header img { height: 28px; width: auto; }
+    .header-meta { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); text-align: right; }
+    .eyebrow {
+      margin-top: 48px;
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 400; line-height: .95; letter-spacing: -.02em;
+    }
+    h1 em { font-style: italic; color: var(--muted); }
+    .lead { margin-top: 18px; color: var(--muted); max-width: 52ch; line-height: 1.65; font-size: 1.05rem; }
+    .tier { margin-top: 64px; }
+    .tier-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .tier h2 { font-family: "Instrument Serif", Georgia, serif; font-size: 1.8rem; font-weight: 400; }
+    .tier-meta { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    a.card {
+      display: flex; flex-direction: column;
+      background: #fff; border: 1px solid var(--border);
+      color: inherit; text-decoration: none;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    a.card:hover { transform: translateY(-3px); border-color: var(--ink); box-shadow: 0 16px 36px rgba(13,11,9,.08); }
+    .thumb { display: block; width: 100%; height: 180px; object-fit: cover; background: var(--sand); }
+    .pad { padding: 18px 18px 20px; }
+    .chip { display: block; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .card h3 { font-family: "Instrument Serif", Georgia, serif; font-size: 1.45rem; font-weight: 400; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+    footer {
+      margin-top: 80px; padding-top: 22px; border-top: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+      font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+    }
+    footer a { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="./atto-logo.png" alt="ATTO" />
+      <p class="header-meta">Estúdio digital · São Paulo</p>
+    </header>
+
+    <p class="eyebrow">ATTO · Landing pages</p>
+    <h1>Nove exemplos.<br /><em>Três de cada plano.</em></h1>
+    <p class="lead">Abra cada página para ver o nível de entrega. Básico = 3 seções. Essencial = 5 seções. Premium = até 8 seções, com 3D.</p>
+
+    <section class="tier">
+      <div class="tier-head">
+        <h2>Básico</h2>
+        <p class="tier-meta">Hero, sobre, contato + menu</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="./basico-hidraulica.html">
+          <img class="thumb" src="./thumbs/basico-hidraulica.jpg" alt="Hidráulica RapidFix" />
+          <div class="pad">
+            <span class="chip">Encanador</span>
+            <h3>Hidráulica RapidFix</h3>
+            <p>Página direta: problema, quem somos, WhatsApp e formulário.</p>
+          </div>
+        </a>
+        <a class="card" href="./basico-manicure.html">
+          <img class="thumb" src="./thumbs/basico-manicure.jpg" alt="Unhas da Ju" />
+          <div class="pad">
+            <span class="chip">Beleza</span>
+            <h3>Unhas da Ju</h3>
+            <p>Landing simples para agendar pelo WhatsApp no bairro.</p>
+          </div>
+        </a>
+        <a class="card" href="./basico-personal.html">
+          <img class="thumb" src="./thumbs/basico-personal.jpg" alt="Treino com Marcelo" />
+          <div class="pad">
+            <span class="chip">Fitness</span>
+            <h3>Treino com Marcelo</h3>
+            <p>Uma página, uma oferta, um botão. Sem firula.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="tier">
+      <div class="tier-head">
+        <h2>Essencial</h2>
+        <p class="tier-meta">Até 5 seções · SEO básico</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="./essencial-barbearia.html">
+          <img class="thumb" src="./thumbs/essencial-barbearia.jpg" alt="Barbearia Cavalera" />
+          <div class="pad">
+            <span class="chip">Barbearia</span>
+            <h3>Barbearia Cavalera</h3>
+            <p>Hero, sobre, serviços, depoimentos e contato.</p>
+          </div>
+        </a>
+        <a class="card" href="./essencial-odonto.html">
+          <img class="thumb" src="./thumbs/essencial-odonto.jpg" alt="Clínica Sorriso e Cia" />
+          <div class="pad">
+            <span class="chip">Odontologia</span>
+            <h3>Clínica Sorriso &amp; Cia</h3>
+            <p>Estrutura de campanha com prova social e serviços.</p>
+          </div>
+        </a>
+        <a class="card" href="./essencial-imobiliaria.html">
+          <img class="thumb" src="./thumbs/essencial-imobiliaria.jpg" alt="Imobiliária Ninho Certo" />
+          <div class="pad">
+            <span class="chip">Imóveis</span>
+            <h3>Imobiliária Ninho Certo</h3>
+            <p>Cinco seções para captação de lead de compra e aluguel.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="tier">
+      <div class="tier-head">
+        <h2>Premium</h2>
+        <p class="tier-meta">Até 8 seções · cena 3D · parallax</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="./premium-restaurante.html">
+          <img class="thumb" src="./thumbs/premium-restaurante.jpg" alt="Osteria Luce" />
+          <div class="pad">
+            <span class="chip">Gastronomia</span>
+            <h3>Osteria Luce</h3>
+            <p>Hero em perspectiva 3D, tilt nos pratos e galeria em órbita.</p>
+          </div>
+        </a>
+        <a class="card" href="./premium-arquitetura.html">
+          <img class="thumb" src="./thumbs/premium-arquitetura.jpg" alt="Atelier Ângulo" />
+          <div class="pad">
+            <span class="chip">Arquitetura</span>
+            <h3>Atelier Ângulo</h3>
+            <p>Planos flutuando no espaço, tilt e deck 3D dos projetos.</p>
+          </div>
+        </a>
+        <a class="card" href="./premium-spa.html">
+          <img class="thumb" src="./thumbs/premium-spa.jpg" alt="Casa Aura Spa" />
+          <div class="pad">
+            <span class="chip">Wellness</span>
+            <h3>Casa Aura Spa</h3>
+            <p>Vidro em volume, orbs e leque 3D da casa.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 ATTO Studio</span>
+      <a href="https://www.instagram.com/agencia.atto/" target="_blank" rel="noopener">@agencia.atto</a>
+      <a href="https://www.attoagencia.com.br/" target="_blank" rel="noopener">attoagencia.com.br</a>
+    </footer>
+  </div>
+</body>
+</html>
