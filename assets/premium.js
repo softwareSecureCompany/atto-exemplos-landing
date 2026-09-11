@@ -18,13 +18,6 @@
   const bar = document.querySelector("[data-progress]");
   const layers = [...document.querySelectorAll("[data-speed]")];
   const reveals = [...document.querySelectorAll("[data-reveal]")];
-  const route = document.querySelector("[data-route]");
-  const traveler = document.querySelector("[data-traveler]");
-  let routeLen = 0;
-  if (route && traveler && route.getTotalLength) {
-    routeLen = route.getTotalLength();
-    traveler.setAttribute("transform", `translate(${route.getPointAtLength(0).x}, ${route.getPointAtLength(0).y})`);
-  }
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -182,8 +175,7 @@
   const world = document.querySelector("[data-world]");
   const tick = () => {
     const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
-    const p = scrollY / max;
-    if (bar) bar.style.transform = `scaleX(${p})`;
+    if (bar) bar.style.transform = `scaleX(${scrollY / max})`;
     tx += (mx - tx) * 0.06;
     ty += (my - ty) * 0.06;
     if (world) world.style.transform = `rotateY(${tx * 14}deg) rotateX(${-ty * 7}deg)`;
@@ -191,12 +183,6 @@
       const speed = Number(el.dataset.speed) || 0.2;
       el.style.transform = `translate3d(${tx * speed * 40}px, ${scrollY * speed * 0.35}px, 0)`;
     });
-    if (route && traveler && routeLen) {
-      const r = document.querySelector("[data-hero]")?.getBoundingClientRect();
-      const hp = r ? Math.min(1, Math.max(0, -r.top / (r.height || 1))) : p;
-      const pt = route.getPointAtLength(routeLen * hp);
-      traveler.setAttribute("transform", `translate(${pt.x}, ${pt.y})`);
-    }
     requestAnimationFrame(tick);
   };
   tick();
