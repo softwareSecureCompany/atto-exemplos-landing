@@ -1,6 +1,13 @@
+node_modules
+.next
+out
 .vercel
 .DS_Store
 Thumbs.db
 .tmp-shots
 apresentacao/node_modules
 apresentacao/shots
+*.pem
+npm-debug.log*
+.env*
+*.tsbuildinfo
