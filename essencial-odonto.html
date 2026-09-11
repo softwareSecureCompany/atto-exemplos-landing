@@ -4,132 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clínica Sorriso &amp; Cia | Dentista em Santo André</title>
-  <meta name="description" content="Clínica odontológica em Santo André. Avaliação, clareamento, implante e urgência. Agende pelo WhatsApp." />
+  <meta name="description" content="Odontologia em Santo André. Avaliação, clareamento, implante e urgência. Agenda pelo WhatsApp." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/essencial.css" />
   <style>
-    :root { --teal:#0e7c7b; --ice:#e8f6f6; --ink:#163033; --muted:#5b6f72; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: "Plus Jakarta Sans", sans-serif; color: var(--ink); background: #f7fbfb; line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    .demo { background: #0d0b09; color: #a8a49f; font-size: 11px; letter-spacing: .08em; padding: 8px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .demo a { color: #f8f5f1; font-weight: 500; letter-spacing: .08em; }
-    nav { max-width: 1100px; margin: 0 auto; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .logo { font-weight: 800; color: var(--teal); }
-    .nav-links { display: none; gap: 18px; font-size: 14px; font-weight: 600; color: var(--muted); }
-    @media (min-width: 800px) { .nav-links { display: flex; } }
-    .btn { display: inline-block; padding: 12px 18px; border-radius: 10px; font-weight: 800; }
-    .btn-teal { background: var(--teal); color: #fff; }
-    .btn-wa { background: #25d366; color: #062d14; }
-    .hero { padding: 28px 22px 72px; }
-    .hero-box { max-width: 1100px; margin: 0 auto; display: grid; gap: 28px; align-items: center; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 18px 50px rgba(14,124,123,.1); }
-    @media (min-width: 860px) { .hero-box { grid-template-columns: 1.1fr .9fr; } }
-    .hero-copy { padding: 36px 28px; }
-    .badge { display: inline-block; background: var(--ice); color: var(--teal); font-size: 12px; font-weight: 800; padding: 6px 10px; border-radius: 999px; margin-bottom: 12px; }
-    h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; letter-spacing: -.03em; margin-bottom: 12px; }
-    .hero p { color: var(--muted); max-width: 44ch; margin-bottom: 22px; }
-    .hero img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 72px 22px; }
-    h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 10px; }
-    .lead { color: var(--muted); max-width: 52ch; margin-bottom: 28px; }
-    .sobre { display: grid; gap: 28px; }
-    @media (min-width: 800px) { .sobre { grid-template-columns: 1fr 1fr; align-items: center; } }
-    .sobre img { width: 100%; height: 300px; object-fit: cover; border-radius: 18px; }
-    .svcs { display: grid; gap: 14px; }
-    @media (min-width: 700px) { .svcs { grid-template-columns: repeat(3, 1fr); } }
-    .svc { background: #fff; border-radius: 16px; padding: 22px; border: 1px solid #d7eaea; }
-    .svc h3 { color: var(--teal); margin-bottom: 8px; }
-    .svc p { color: var(--muted); font-size: .94rem; }
-    .ice { background: var(--ice); }
-    .depos { display: grid; gap: 14px; }
-    @media (min-width: 700px) { .depos { grid-template-columns: 1fr 1fr 1fr; } }
-    .depo { background: #fff; padding: 20px; border-radius: 14px; }
-    .depo strong { display: block; margin-top: 10px; font-size: 13px; color: var(--teal); }
-    .contact { display: grid; gap: 24px; }
-    @media (min-width: 800px) { .contact { grid-template-columns: 1fr 1fr; } }
-    form { display: grid; gap: 10px; }
-    input, textarea { width: 100%; padding: 12px; border: 1px solid #c5dddd; border-radius: 10px; font: inherit; }
-    textarea { min-height: 100px; }
-    button.btn-teal { border: 0; cursor: pointer; font: inherit; }
-    .ok { display: none; color: #0a7a3a; font-weight: 700; }
-    footer { background: var(--teal); color: #dff4f4; text-align: center; padding: 28px 16px; font-size: 13px; }
+    :root {
+      --ink: #163033; --paper: #f7fbfb; --tint: #e8f6f6; --line: #d7eaea;
+      --muted: #5b6f72; --accent: #0e7c7b; --on-accent: #fff;
+      --display: Fraunces; --sans: "Plus Jakarta Sans"; --radius: 16px;
+    }
+    .logo { font-weight: 800; color: var(--accent); font-family: "Plus Jakarta Sans", sans-serif; }
   </style>
 </head>
 <body>
-  <div class="demo">
-    <a href="./index.html">← ATTO · Exemplos</a>
-    <span>Plano Essencial · R$ 997 · 5 seções · SEO básico</span>
-  </div>
-  <nav>
-    <div class="logo">Sorriso &amp; Cia</div>
-    <div class="nav-links">
-      <a href="#sobre">A clínica</a>
-      <a href="#servicos">Tratamentos</a>
-      <a href="#depoimentos">Pacientes</a>
-      <a href="#contato">Contato</a>
-    </div>
-    <a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
-  </nav>
-  <header class="hero">
-    <div class="hero-box">
-      <div class="hero-copy">
-        <span class="badge">Santo André · ABC</span>
-        <h1>Dentista de família, com horário que cabe na sua semana.</h1>
-        <p>Avaliação completa, clareamento, canal e urgência. Explicamos cada etapa antes de começar.</p>
-        <a class="btn btn-teal" href="#contato">Agendar avaliação</a>
-        <a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener" style="margin-left:8px">Falar no Zap</a>
-      </div>
-      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Consultório odontológico" />
+  <div class="demo"><a href="./index.html">← ATTO · Exemplos</a><span>Essencial · R$ 597 · campanha completa</span></div>
+  <header class="nav" data-nav>
+    <div class="nav-inner">
+      <a class="logo" href="#inicio">Sorriso &amp; Cia</a>
+      <button class="burger" data-burger type="button" aria-label="Menu">☰</button>
+      <nav class="menu" data-menu>
+        <a href="#sobre">A clínica</a>
+        <a href="#servicos">Tratamentos</a>
+        <a href="#prova">Pacientes</a>
+        <a href="#contato">Agenda</a>
+        <a class="wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
     </div>
   </header>
+  <section class="hero" id="inicio">
+    <div class="hero-media" data-hero-media style="background-image:url('./thumbs/essencial-odonto.jpg')"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-copy" data-hero-copy>
+      <p class="kicker">Santo André · ABC</p>
+      <h1>Dentista de família, no horário que cabe.</h1>
+      <p>Avaliação completa, clareamento, canal e urgência. Cada etapa explicada antes de começar.</p>
+      <div class="btns">
+        <a class="btn btn-a" href="#contato">Agendar avaliação</a>
+        <a class="btn btn-d" href="https://wa.me/5511996077349" target="_blank" rel="noopener">Falar no Zap</a>
+      </div>
+    </div>
+  </section>
+  <div class="stats">
+    <div class="stat"><strong data-count="12">0</strong><span>anos de clínica</span></div>
+    <div class="stat"><strong>4 min</strong><span>da estação</span></div>
+    <div class="stat"><strong data-count="2">0</strong><span>consultórios</span></div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Biossegurança</span><span>Convênio e particular</span><span>Raio-x digital</span><span>Atende criança</span><span>Orçamento por escrito</span>
+      <span>Biossegurança</span><span>Convênio e particular</span><span>Raio-x digital</span><span>Atende criança</span><span>Orçamento por escrito</span>
+    </div>
+  </div>
   <section class="wrap" id="sobre">
-    <h2>Cuidado sem susto na cadeira</h2>
-    <p class="lead">A Dra. Helena e o Dr. Paulo atendem adultos e crianças. Biossegurança em todas as salas e plano de tratamento por escrito.</p>
-    <div class="sobre">
-      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&amp;fit=crop&amp;w=1100&amp;q=80" alt="Equipe da clínica" />
-      <div>
-        <p>Estamos no centro de Santo André, a 4 minutos da estação. Aceitamos os principais convênios e também particular com parcelamento.</p>
-        <p style="margin-top:12px">Primeira consulta: exame clínico + raio-x quando necessário + orçamento transparente.</p>
+    <div class="split">
+      <img data-reveal src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80" alt="Consultório" />
+      <div data-reveal>
+        <h2>Cuidado sem susto na cadeira.</h2>
+        <p class="lead">A Dra. Helena e o Dr. Paulo atendem adultos e crianças. Plano de tratamento no papel, sem surpresa no final.</p>
+        <p>Centro de Santo André. Aceitamos os principais convênios e particular com parcelamento.</p>
       </div>
     </div>
   </section>
-  <section class="ice" id="servicos">
+  <section class="tint" id="servicos">
     <div class="wrap">
-      <h2>Tratamentos</h2>
-      <p class="lead">Do check-up ao sorriso que você evita mostrar na foto.</p>
-      <div class="svcs">
-        <article class="svc"><h3>Clínica geral</h3><p>Limpeza, restauração, canal e prevenção com retorno anual.</p></article>
-        <article class="svc"><h3>Estética</h3><p>Clareamento, lentes e alinhadores. Simulação antes de decidir.</p></article>
-        <article class="svc"><h3>Implantes</h3><p>Planejamento digital e acompanhamento até a prótese final.</p></article>
+      <h2 data-reveal>Tratamentos</h2>
+      <p class="lead" data-reveal>Do check-up ao sorriso que você evita mostrar na foto.</p>
+      <div class="bento">
+        <article class="cell wide" data-reveal>
+          <h3>Clínica geral</h3>
+          <p>Limpeza, restauração, canal e prevenção com retorno anual. Primeira consulta: exame + raio-x quando precisa + orçamento transparente.</p>
+        </article>
+        <article class="cell" data-reveal>
+          <h3>Estética</h3>
+          <p>Clareamento, lentes e alinhadores. Simulação antes de decidir.</p>
+        </article>
+        <article class="cell" data-reveal>
+          <h3>Implantes</h3>
+          <p>Planejamento digital até a prótese final.</p>
+        </article>
       </div>
     </div>
   </section>
-  <section class="wrap" id="depoimentos">
-    <h2>O que os pacientes falam</h2>
-    <div class="depos">
-      <blockquote class="depo">“Tenho medo de dentista. Aqui explicaram tudo e não doeu.”<strong>Camila, 34</strong></blockquote>
-      <blockquote class="depo">“Levei meu filho e ele pediu para voltar. Isso nunca tinha acontecido.”<strong>Rogério, 41</strong></blockquote>
-      <blockquote class="depo">“Orçamento claro, sem surpresa no final. Indico.”<strong>Lívia, 29</strong></blockquote>
+  <section class="wrap" id="prova">
+    <h2 data-reveal>O que os pacientes falam</h2>
+    <div class="depos" style="margin-top:28px">
+      <blockquote class="depo" data-reveal>“Tenho medo de dentista. Aqui explicaram tudo e não doeu.”<strong>Camila, 34</strong></blockquote>
+      <blockquote class="depo" data-reveal>“Levei meu filho e ele pediu para voltar.”<strong>Rogério, 41</strong></blockquote>
+    </div>
+    <div class="faq" data-faq style="margin-top:48px">
+      <div data-faq-item>
+        <button type="button">Dói? <span>+</span></button>
+        <p>Anestesia moderna e ritmo calmo. Se você tem medo, avisa na recepção — a gente adapta.</p>
+      </div>
+      <div data-faq-item>
+        <button type="button">Atende convênio? <span>+</span></button>
+        <p>Sim, os principais. Particular com parcelamento na avaliação.</p>
+      </div>
+      <div data-faq-item>
+        <button type="button">Urgência no mesmo dia? <span>+</span></button>
+        <p>Encaixamos dor e trauma. Manda foto no WhatsApp que priorizamos.</p>
+      </div>
     </div>
   </section>
   <section class="wrap" id="contato">
-    <h2>Marque sua avaliação</h2>
+    <h2 data-reveal>Marque sua avaliação</h2>
     <div class="contact">
-      <form onsubmit="event.preventDefault(); this.querySelector('.ok').style.display='block';">
+      <form data-demo>
         <input type="text" placeholder="Nome" required />
         <input type="tel" placeholder="WhatsApp" required />
         <textarea placeholder="Qual tratamento te interessa?"></textarea>
-        <button class="btn btn-teal" type="submit">Enviar</button>
+        <button class="btn btn-a" type="submit">Enviar</button>
         <p class="ok">Recebido. Este é um exemplo — nenhum dado foi enviado.</p>
       </form>
-      <div>
+      <div data-reveal>
         <p>Rua das Figueiras, 540 · Santo André<br />Seg–Sex 8h–19h · Sáb 8h–13h</p>
-        <p style="margin-top:16px"><a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp da clínica</a></p>
+        <p style="margin-top:18px"><a class="btn wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp da clínica</a></p>
       </div>
     </div>
   </section>
-  <footer>Clínica Sorriso &amp; Cia · Exemplo ATTO</footer>
+  <footer><div class="ft"><span>Sorriso &amp; Cia · Exemplo Essencial ATTO</span><a href="#inicio">Topo</a></div></footer>
+  <script src="./assets/essencial.js"></script>
 </body>
 </html>

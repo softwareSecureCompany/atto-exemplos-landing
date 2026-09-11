@@ -3,269 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Casa Aura Spa | Rituais de bem-estar em Higienópolis</title>
-  <meta name="description" content="Spa em Higienópolis. Massagem, ritual facial e day spa. Agenda pelo WhatsApp e Instagram." />
+  <title>Casa Aura Spa | Rituais em Higienópolis</title>
+  <meta name="description" content="Spa particular em Higienópolis. Massagem, facial e day spa. Agenda no WhatsApp." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/premium.css" />
   <style>
-    :root { --moss:#2c4036; --sage:#8fa392; --sand:#f4efe6; --rose:#e7c8c0; --ink:#243028; --muted:#66756c; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: "Nunito Sans", sans-serif; background: var(--sand); color: var(--ink); line-height: 1.65; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-    .demo { position: relative; z-index: 200; background: #0d0b09; color: #a8a49f; font-size: 11px; letter-spacing: .08em; padding: 8px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .demo a { color: #f8f5f1; font-weight: 500; letter-spacing: .08em; }
-    nav { position: sticky; top: 0; z-index: 80; display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; background: rgba(244,239,230,.72); backdrop-filter: blur(16px); }
-    .logo { font-family: "Libre Baskerville", serif; font-size: 1.2rem; }
-    .nav-links { display: none; gap: 20px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-    @media (min-width: 860px) { .nav-links { display: flex; } }
-    .nav-links a { position: relative; padding: 6px 0; transition: color .4s cubic-bezier(.2,.7,.2,1); }
-    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 2px; height: 1px; width: 0; background: var(--moss); transition: width .45s cubic-bezier(.2,.7,.2,1); }
-    .nav-links a:hover { color: var(--moss); }
-    .nav-links a:hover::after { width: 100%; }
-    .logo { transition: letter-spacing .45s cubic-bezier(.2,.7,.2,1); }
-    .logo:hover { letter-spacing: .08em; }
-    .btn { display: inline-block; padding: 12px 18px; border-radius: 999px; font-weight: 800; font-size: 13px; transition: transform .35s; }
-    .btn-m { background: var(--moss); color: #f4efe6; }
-    .btn-m:hover { transform: translateY(-3px) scale(1.03); }
-    .btn-wa { background: #25d366; color: #062d14; }
-
-    .stage { position: relative; height: 100vh; height: 100svh; perspective: 1500px; overflow: hidden; background: #1c2a22; }
-    .world { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
-    .fog { position: absolute; inset: -20%; background: url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2200&q=80") center/cover; transform: translateZ(-300px) scale(1.5); filter: brightness(.5) saturate(.85); }
-    .mist { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(44,64,54,.25), rgba(44,64,54,.72)); transform: translateZ(-60px); }
-    .orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(2px); }
-    .orb-1 { width: 340px; height: 340px; left: -40px; top: 8%; background: radial-gradient(circle, rgba(231,200,192,.45), transparent 68%); transform: translateZ(40px); }
-    .orb-2 { width: 260px; height: 260px; right: -20px; bottom: 10%; background: radial-gradient(circle, rgba(143,163,146,.4), transparent 68%); transform: translateZ(120px); }
-    .orb-3 { width: 160px; height: 160px; left: 38%; top: 18%; background: radial-gradient(circle, rgba(255,255,255,.18), transparent 70%); transform: translateZ(200px); }
-    .glass { position: absolute; width: min(42vw, 380px); aspect-ratio: 4/5; border-radius: 28px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 40px 90px rgba(0,0,0,.28); }
-    .glass img { width: 100%; height: 100%; object-fit: cover; }
-    .glass-a { left: 8%; top: 18%; transform: translateZ(90px) rotateY(16deg); }
-    .glass-b { right: 9%; top: 26%; width: min(28vw, 240px); transform: translateZ(180px) rotateY(-14deg); }
-    .hero-card { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: #fff; padding: 28px; transform: translateZ(240px); }
-    .hero-card em { letter-spacing: .26em; text-transform: uppercase; font-size: 11px; font-style: normal; color: var(--rose); }
-    .hero-card h1 { font-family: "Libre Baskerville", serif; font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 400; margin: 12px 0; text-shadow: 0 16px 40px rgba(0,0,0,.35); }
-    .hero-card p { max-width: 36ch; margin: 0 auto 18px; }
-
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 100px 22px; }
-    h2 { font-family: "Libre Baskerville", serif; font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 400; }
-    .lead { color: var(--muted); max-width: 48ch; margin: 12px 0 28px; }
-    .reveal { opacity: 0; transform: translateY(30px) rotateX(8deg); transition: .85s ease; }
-    .reveal.on { opacity: 1; transform: none; }
-    .split { display: grid; gap: 36px; align-items: center; }
-    @media (min-width: 840px) { .split { grid-template-columns: 1fr 1fr; } }
-    .float-img { perspective: 900px; }
-    .float-img img { width: 100%; height: 400px; object-fit: cover; border-radius: 24px; transform: rotateY(-7deg) translateZ(20px); box-shadow: 24px 30px 60px rgba(44,64,54,.18); transition: .6s; }
-    .float-img:hover img { transform: rotateY(0) scale(1.02); }
-
-    .rituais { display: grid; gap: 16px; perspective: 1100px; }
-    @media (min-width: 700px) { .rituais { grid-template-columns: repeat(3, 1fr); } }
-    .r { background: #fff; padding: 26px 22px; border-radius: 22px; box-shadow: 0 16px 40px rgba(44,64,54,.08); transform-style: preserve-3d; }
-    .r h3 { font-family: "Libre Baskerville", serif; margin-bottom: 8px; }
-    .r span { display: block; margin-top: 12px; font-weight: 800; color: var(--moss); }
-
-    .drift { position: relative; min-height: 64vh; display: grid; place-items: center; text-align: center; color: #fff; padding: 50px 20px; overflow: hidden; perspective: 1000px; }
-    .drift-bg { position: absolute; inset: -16%; background: url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=2000&q=80") center/cover; }
-    .drift p { position: relative; font-family: "Libre Baskerville", serif; font-size: clamp(1.6rem, 4vw, 2.5rem); font-style: italic; max-width: 16ch; }
-
-    .packs { display: grid; gap: 16px; perspective: 1000px; }
-    @media (min-width: 700px) { .packs { grid-template-columns: 1fr 1fr; } }
-    .pk { background: var(--moss); color: #f4efe6; padding: 30px; border-radius: 22px; transform-style: preserve-3d; }
-    .pk.soft { background: #fff; color: var(--ink); border: 1px solid #ddd6c8; }
-
-    .fan { height: 400px; perspective: 1400px; position: relative; }
-    .fan-track { position: absolute; inset: 0; display: grid; place-items: center; transform-style: preserve-3d; }
-    .fan-card { position: absolute; width: min(50vw, 280px); height: 360px; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(44,64,54,.25); cursor: pointer; transition: transform .7s cubic-bezier(.22,1,.36,1); }
-    .fan-card img { width: 100%; height: 100%; object-fit: cover; }
-
-    .ig { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .ig img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; transition: transform .4s; }
-    .ig img:hover { transform: translateY(-6px) scale(1.03); }
-    .depos { display: grid; gap: 12px; margin-top: 22px; }
-    @media (min-width: 800px) { .depos { grid-template-columns: 1fr 1fr; } }
-    .depo { background: #fff; padding: 20px; border-radius: 14px; }
-    form { display: grid; gap: 10px; }
-    input, textarea, select { width: 100%; padding: 12px; border: 1px solid #d8d0c4; border-radius: 10px; font: inherit; background: #fff; }
-    textarea { min-height: 90px; }
-    button { border: 0; cursor: pointer; font: inherit; }
-    .ok { display: none; color: #0a7a3a; font-weight: 700; }
-    footer { background: var(--moss); color: #c9d6ce; text-align: center; padding: 28px 16px; font-size: 13px; }
-    @media (max-width: 720px) { .glass { display: none; } .hero-card { transform: none; } }
+    :root {
+      --bg: #121a16; --panel: #1b2620; --cloud: #f4efe6; --fog: #9aa89f;
+      --accent: #8fa392; --accent-2: #e7c8c0;
+      --display: "Libre Baskerville"; --sans: "Nunito Sans";
+    }
   </style>
 </head>
 <body>
-  <div class="demo">
-    <a href="./index.html">← ATTO · Exemplos</a>
-    <span>Premium · volume 3D · mexe o mouse</span>
-  </div>
-  <nav>
-    <div class="logo">Casa Aura</div>
-    <div class="nav-links">
+  <div class="demo"><a href="./index.html">← ATTO · Exemplos</a><span>Premium · R$ 1.250 · volume 3D</span></div>
+  <div class="progress" data-progress></div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+  <div class="cursor" data-cursor></div>
+  <div class="ring" data-ring></div>
+  <canvas class="ambient" data-ambient></canvas>
+
+  <nav class="site">
+    <a class="logo" href="#topo">Casa Aura</a>
+    <button class="burger" data-burger type="button" aria-label="Menu">☰</button>
+    <div class="links" data-menu>
       <a href="#casa">A casa</a>
       <a href="#rituais">Rituais</a>
-      <a href="#pacotes">Pacotes</a>
-      <a href="#galeria">Casa</a>
-      <a href="#social">Instagram</a>
+      <a href="#galeria">Camadas</a>
       <a href="#agenda">Agenda</a>
     </div>
-    <a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
   </nav>
 
-  <header class="stage" id="stage">
-    <div class="world" id="world">
-      <div class="fog"></div>
-      <div class="mist"></div>
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-      <div class="glass glass-a"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="" /></div>
-      <div class="glass glass-b"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="" /></div>
-      <div class="hero-card">
-        <div>
-          <em>Higienópolis · São Paulo</em>
-          <h1>Voltar ao corpo.</h1>
-          <p>Rituais de 60 a 120 minutos. Luz baixa, óleo quente, silêncio combinado.</p>
-          <a class="btn btn-m" href="#agenda">Agendar ritual</a>
-        </div>
+  <header class="stage" id="topo" data-hero>
+    <div class="world" data-world>
+      <div data-speed="0.18" style="position:absolute;inset:-18%;background:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2200&q=80') center/cover;filter:brightness(.42) saturate(.8)"></div>
+      <svg class="map" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="gradRoute" x1="0" x2="1">
+            <stop offset="0%" stop-color="#e7c8c0" />
+            <stop offset="100%" stop-color="#8fa392" />
+          </linearGradient>
+        </defs>
+        <path data-route d="M90,780 C260,780 260,500 520,500 C780,500 780,220 1100,220 S1280,120 1320,80" fill="none" stroke="url(#gradRoute)" stroke-width="4" stroke-dasharray="1 16" />
+        <circle cx="90" cy="780" r="5" fill="#3A4456" />
+        <circle cx="520" cy="500" r="5" fill="#3A4456" />
+        <circle cx="1320" cy="80" r="8" fill="#e7c8c0" />
+        <g data-traveler><circle r="7" fill="#e7c8c0" style="filter:drop-shadow(0 0 10px #e7c8c0)" /></g>
+        <text x="110" y="760" fill="#9aa89f" font-size="13" letter-spacing="4">HIGIENÓPOLIS</text>
+        <text x="1180" y="70" fill="#e7c8c0" font-size="13" letter-spacing="3">AURA</text>
+      </svg>
+    </div>
+    <div class="hero-copy">
+      <div>
+        <p class="k"><i></i> Higienópolis · São Paulo</p>
+        <h1><span class="line">Voltar</span><span class="line">ao corpo.</span></h1>
+        <p>Rituais de 60 a 120 minutos. Luz baixa, óleo quente, silêncio combinado. Você não cruza com outra pessoa no corredor.</p>
+        <a class="btn btn-a filled" data-magnetic href="#agenda">Agendar ritual</a>
       </div>
     </div>
   </header>
 
-  <section class="wrap reveal" id="casa">
+  <div class="marquee" aria-hidden="true">
+    <div class="mq">
+      <span>Pedra quente</span><span>Facial Aura</span><span>Day spa</span><span>Gestante</span><span>Burnout</span>
+      <span>Pedra quente</span><span>Facial Aura</span><span>Day spa</span><span>Gestante</span><span>Burnout</span>
+    </div>
+  </div>
+
+  <section class="wrap" id="casa">
     <div class="split">
-      <div>
+      <div data-reveal>
         <h2>Uma casa, não uma clínica.</h2>
-        <p class="lead">Três salas, chá na chegada, sem playlist alta. Atendimento particular — você não cruza com outra pessoa no corredor.</p>
-        <p>Equipe formada em massoterapia e estética. Protocolos para gestante, burnout e pele sensível.</p>
+        <p class="lead">Três salas, chá na chegada, sem playlist alta. Protocolos para gestante, burnout e pele sensível.</p>
+        <p>O tempo aqui anda mais devagar de propósito — o mesmo cuidado de ritmo da Nexo, no corpo.</p>
       </div>
-      <div class="float-img">
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sala de massagem" />
+      <div data-tilt data-reveal>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80" alt="Sala" style="width:100%;height:420px;object-fit:cover;display:block;border-radius:24px" />
       </div>
     </div>
   </section>
 
-  <section class="wrap reveal" id="rituais">
-    <h2>Rituais</h2>
-    <p class="lead">Passe o mouse. Os cartões ganham volume.</p>
-    <div class="rituais">
-      <article class="r" data-tilt><h3>Pedra quente</h3><p>Costas, ombros e pés. Ideal depois de semana no computador.</p><span>75 min · R$ 280</span></article>
-      <article class="r" data-tilt><h3>Facial Aura</h3><p>Limpeza, drenagem e máscara. Pele que respira de novo.</p><span>60 min · R$ 240</span></article>
-      <article class="r" data-tilt><h3>Day spa</h3><p>Dois rituais + almoço leve + descanso no jardim interno.</p><span>4h · R$ 620</span></article>
+  <section class="wrap" id="rituais">
+    <h2 data-reveal>Rituais</h2>
+    <p class="lead" data-reveal>Passe o mouse. Os cartões ganham volume.</p>
+    <div class="grid3">
+      <article class="card" data-tilt data-reveal><h3>Pedra quente</h3><p>Costas, ombros e pés. 75 min · R$ 280.</p></article>
+      <article class="card" data-tilt data-reveal><h3>Facial Aura</h3><p>Limpeza, drenagem, máscara. 60 min · R$ 240.</p></article>
+      <article class="card" data-tilt data-reveal><h3>Day spa</h3><p>Dois rituais + almoço leve + jardim. 4h · R$ 620.</p></article>
     </div>
   </section>
 
-  <section class="drift">
-    <div class="drift-bg" data-shift></div>
-    <p>O tempo aqui anda mais devagar de propósito.</p>
+  <section class="band">
+    <div data-speed="0.14" style="position:absolute;inset:-16%;background:url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=2000&q=80') center/cover;filter:brightness(.35)"></div>
+    <q>O tempo aqui anda mais devagar de propósito.</q>
   </section>
 
-  <section class="wrap reveal" id="pacotes">
-    <h2>Ficar, não só passar</h2>
-    <div class="packs">
-      <article class="pk" data-tilt><h3>Assinatura mensal</h3><p>2 rituais por mês, horário fixo, 12% off. Cancele quando quiser.</p></article>
-      <article class="pk soft" data-tilt><h3>Presente</h3><p>Vale digital com validade de 6 meses. Enviamos no WhatsApp da pessoa.</p></article>
+  <section class="wrap" id="galeria">
+    <h2 data-reveal>A casa em camadas</h2>
+    <p class="lead" data-reveal>Toque um quadro. O mesmo deck em profundidade da LogRoute.</p>
+    <div class="cover">
+      <div class="cover-track" data-cover data-shots='["https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80"]'></div>
     </div>
   </section>
 
-  <section class="wrap reveal" id="galeria">
-    <h2>A casa em camadas</h2>
-    <p class="lead">Toque um quadro para trazer para o primeiro plano.</p>
-    <div class="fan" id="fan">
-      <div class="fan-track" id="fanTrack"></div>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="social">
-    <h2>@casaauraspa</h2>
-    <p class="lead">Detalhes, horários livres e o jardim depois da chuva.</p>
-    <div class="ig">
-      <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="" />
-      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="" />
-      <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="" />
-    </div>
-    <div class="depos">
-      <blockquote class="depo">“Saí de lá sem o peso no pescoço que carrego há meses. Já agendei o próximo.”<strong> — Elisa</strong></blockquote>
-      <blockquote class="depo">“Presenteei minha irmã. O vale chegou em 2 minutos no WhatsApp dela.”<strong> — Paula</strong></blockquote>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="agenda">
-    <h2>Abrir a agenda</h2>
+  <section class="wrap" id="agenda">
     <div class="split">
-      <form onsubmit="event.preventDefault(); this.querySelector('.ok').style.display='block';">
+      <div data-reveal>
+        <h2>Abrir a agenda</h2>
+        <p class="lead">Rua Maranhão, 520 · Higienópolis. Ter–Sáb 10h–20h. @casaauraspa</p>
+        <a class="btn btn-a filled" data-magnetic href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp da casa</a>
+      </div>
+      <form data-demo data-reveal>
         <input type="text" placeholder="Nome" required />
         <input type="tel" placeholder="WhatsApp" required />
         <select><option>Pedra quente</option><option>Facial Aura</option><option>Day spa</option><option>Vale presente</option></select>
-        <textarea placeholder="Dia preferido e se é sua primeira vez"></textarea>
-        <button class="btn btn-m" type="submit">Pedir horário</button>
+        <textarea placeholder="Dia preferido"></textarea>
+        <button class="btn btn-a filled" data-magnetic type="submit">Pedir horário</button>
         <p class="ok">Recebido. Este é um exemplo — nenhum dado foi enviado.</p>
       </form>
-      <div>
-        <p>Rua Maranhão, 520 · Higienópolis<br />Ter–Sáb 10h–20h</p>
-        <p style="margin-top:16px"><a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp da casa</a></p>
-      </div>
     </div>
   </section>
-  <footer>Casa Aura Spa · Exemplo Premium ATTO · volume 3D</footer>
-  <script>
-    const world = document.getElementById("world");
-    let mx = 0, my = 0, tx = 0, ty = 0;
-    document.getElementById("stage").addEventListener("mousemove", (e) => {
-      mx = e.clientX / innerWidth - 0.5;
-      my = e.clientY / innerHeight - 0.5;
-    });
-    const loop = () => {
-      tx += (mx - tx) * 0.05;
-      ty += (my - ty) * 0.05;
-      world.style.transform = `rotateY(${tx * 14}deg) rotateX(${-ty * 7}deg)`;
-      document.querySelectorAll("[data-shift]").forEach((el) => {
-        const r = el.parentElement.getBoundingClientRect();
-        el.style.transform = `translate3d(${tx * 18}px, ${(innerHeight / 2 - r.top) * 0.07}px, 0) scale(1.12)`;
-      });
-      requestAnimationFrame(loop);
-    };
-    loop();
-
-    document.querySelectorAll("[data-tilt]").forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `rotateY(${x * 15}deg) rotateX(${-y * 11}deg) translateZ(20px)`;
-      });
-      card.addEventListener("mouseleave", () => { card.style.transform = ""; });
-    });
-
-    const shots = [
-      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80"
-    ];
-    const track = document.getElementById("fanTrack");
-    let active = 1;
-    const render = () => {
-      track.innerHTML = "";
-      shots.forEach((src, i) => {
-        const d = i - active;
-        const el = document.createElement("div");
-        el.className = "fan-card";
-        el.innerHTML = `<img src="${src}" alt="" />`;
-        el.style.transform = `translateX(${d * 170}px) translateZ(${-Math.abs(d) * 140}px) rotateY(${d * -22}deg)`;
-        el.style.zIndex = String(10 - Math.abs(d));
-        el.onclick = () => { active = i; render(); };
-        track.appendChild(el);
-      });
-    };
-    render();
-
-    const reveals = [...document.querySelectorAll(".reveal")];
-    const onScroll = () => reveals.forEach((el) => {
-      if (el.getBoundingClientRect().top < innerHeight * 0.88) el.classList.add("on");
-    });
-    addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  </script>
+  <footer class="site"><span>Casa Aura · Premium ATTO</span><span>Rota, grain, profundidade</span></footer>
+  <script src="./assets/premium.js"></script>
 </body>
 </html>

@@ -4,119 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Imobiliária Ninho Certo | Compra e aluguel no ABC</title>
-  <meta name="description" content="Imóveis para comprar e alugar no ABC. Atendimento humano, visita agendada e proposta pelo WhatsApp." />
+  <meta name="description" content="Imóveis no ABC com filtro de verdade. Visita só no que cabe no orçamento. WhatsApp humano." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/essencial.css" />
   <style>
-    :root { --navy:#17335a; --sand:#f3eee6; --accent:#e07a3d; --muted:#5c6570; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: Manrope, sans-serif; color: #1b2430; background: #fff; line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    .demo { background: #0d0b09; color: #a8a49f; font-size: 11px; letter-spacing: .08em; padding: 8px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .demo a { color: #f8f5f1; font-weight: 500; letter-spacing: .08em; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; border-bottom: 1px solid #ece7de; }
-    .logo { font-weight: 800; color: var(--navy); }
-    .nav-links { display: none; gap: 18px; font-size: 14px; font-weight: 700; color: var(--muted); }
-    @media (min-width: 800px) { .nav-links { display: flex; } }
-    .btn { display: inline-block; padding: 12px 18px; border-radius: 8px; font-weight: 800; }
-    .btn-n { background: var(--navy); color: #fff; }
-    .btn-a { background: var(--accent); color: #fff; }
-    .btn-wa { background: #25d366; color: #062d14; }
-    .hero { background: var(--sand); padding: 56px 22px 64px; }
-    .hero-inner { max-width: 1080px; margin: 0 auto; display: grid; gap: 32px; align-items: center; }
-    @media (min-width: 860px) { .hero-inner { grid-template-columns: 1fr 1fr; } }
-    h1 { font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.12; letter-spacing: -.03em; color: var(--navy); margin: 8px 0 14px; }
-    .kicker { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
-    .hero p { color: var(--muted); max-width: 46ch; margin-bottom: 22px; }
-    .hero img { width: 100%; height: 340px; object-fit: cover; border-radius: 16px; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 72px 22px; }
-    h2 { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--navy); margin-bottom: 10px; }
-    .lead { color: var(--muted); max-width: 50ch; margin-bottom: 28px; }
-    .sobre { display: grid; gap: 24px; }
-    @media (min-width: 800px) { .sobre { grid-template-columns: 1fr 1fr; align-items: start; } }
-    .feat { display: grid; gap: 14px; }
-    @media (min-width: 700px) { .feat { grid-template-columns: repeat(3, 1fr); } }
-    .f { background: var(--sand); padding: 22px; border-radius: 12px; }
-    .f h3 { margin-bottom: 8px; }
-    .f p { color: var(--muted); font-size: .94rem; }
-    .navy { background: var(--navy); color: #e8eef6; }
-    .navy h2 { color: #fff; }
-    .navy .lead { color: #c5d0dc; }
-    .depos { display: grid; gap: 14px; }
-    @media (min-width: 700px) { .depos { grid-template-columns: 1fr 1fr; } }
-    .depo { background: rgba(255,255,255,.08); padding: 20px; border-radius: 12px; }
-    .depo strong { display: block; margin-top: 10px; font-size: 13px; color: #f0b089; }
-    .contact { display: grid; gap: 24px; }
-    @media (min-width: 800px) { .contact { grid-template-columns: 1fr 1fr; } }
-    form { display: grid; gap: 10px; }
-    input, textarea, select { width: 100%; padding: 12px; border: 1px solid #d7d0c4; border-radius: 8px; font: inherit; }
-    textarea { min-height: 90px; }
-    button { border: 0; cursor: pointer; font: inherit; }
-    .ok { display: none; color: #0a7a3a; font-weight: 700; }
-    footer { background: #10243f; color: #9eb0c4; text-align: center; padding: 26px 16px; font-size: 13px; }
+    :root {
+      --ink: #17335a; --paper: #fff; --tint: #f3eee6; --line: #ece7de;
+      --muted: #5c6570; --accent: #e07a3d; --on-accent: #fff;
+      --display: "Cormorant Garamond"; --sans: Manrope; --radius: 10px;
+    }
+    .logo { font-weight: 800; font-family: Manrope, sans-serif; }
+    .hero-veil { background: linear-gradient(100deg, rgba(23,51,90,.88), rgba(23,51,90,.28)); }
   </style>
 </head>
 <body>
-  <div class="demo">
-    <a href="./index.html">← ATTO · Exemplos</a>
-    <span>Plano Essencial · R$ 997 · 5 seções · SEO básico</span>
-  </div>
-  <nav>
-    <div class="logo">Ninho Certo</div>
-    <div class="nav-links">
-      <a href="#sobre">Quem somos</a>
-      <a href="#servicos">Como funciona</a>
-      <a href="#depoimentos">Clientes</a>
-      <a href="#contato">Contato</a>
-    </div>
-    <a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
-  </nav>
-  <header class="hero">
-    <div class="hero-inner">
-      <div>
-        <p class="kicker">ABC Paulista</p>
-        <h1>Achar o imóvel certo sem perder o fim de semana em visita inútil.</h1>
-        <p>Filtramos o que cabe no seu orçamento e no seu bairro. Você visita só o que faz sentido.</p>
-        <a class="btn btn-n" href="#contato">Quero um imóvel</a>
-        <a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener" style="margin-left:8px">Falar agora</a>
-      </div>
-      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Chaves de casa" />
+  <div class="demo"><a href="./index.html">← ATTO · Exemplos</a><span>Essencial · R$ 597 · campanha completa</span></div>
+  <header class="nav" data-nav>
+    <div class="nav-inner">
+      <a class="logo" href="#inicio">Ninho Certo</a>
+      <button class="burger" data-burger type="button" aria-label="Menu">☰</button>
+      <nav class="menu" data-menu>
+        <a href="#sobre">Quem somos</a>
+        <a href="#servicos">Como funciona</a>
+        <a href="#prova">Clientes</a>
+        <a href="#contato">Contato</a>
+        <a class="wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
     </div>
   </header>
-  <section class="wrap" id="sobre">
-    <h2>Corretores que respondem de verdade</h2>
-    <p class="lead">Somos um time pequeno em São Caetano. Não empurramos imóvel que você não pediu.</p>
-    <div class="sobre">
-      <p>Trabalhamos com venda e locação residencial no ABC. Cada lead vira uma conversa: quantos quartos, se aceita pet, se precisa de metrô perto, se o financiamento já foi pré-aprovado.</p>
-      <p>Documentação acompanhada até a chave. Parceria com correspondentes bancários para quem vai financiar.</p>
-    </div>
-  </section>
-  <section id="servicos">
-    <div class="wrap">
-      <h2>Como a gente trabalha</h2>
-      <div class="feat">
-        <article class="f"><h3>1. Briefing</h3><p>Orçamento, bairro e o que é inegociável. 15 minutos no WhatsApp.</p></article>
-        <article class="f"><h3>2. Shortlist</h3><p>Até 5 opções reais, com foto honesta e ponto negativo dito na lata.</p></article>
-        <article class="f"><h3>3. Visita e proposta</h3><p>Agendamos juntos. Se fechar, tocamos contrato e chaves.</p></article>
+  <section class="hero" id="inicio">
+    <div class="hero-media" data-hero-media style="background-image:url('./thumbs/essencial-imobiliaria.jpg')"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-copy" data-hero-copy>
+      <p class="kicker">ABC Paulista</p>
+      <h1>Imóvel certo, sem fim de semana perdido.</h1>
+      <p>Filtramos o que cabe no orçamento e no bairro. Você visita só o que faz sentido.</p>
+      <div class="btns">
+        <a class="btn btn-a" href="#contato">Quero um imóvel</a>
+        <a class="btn btn-d" href="https://wa.me/5511996077349" target="_blank" rel="noopener">Falar agora</a>
       </div>
     </div>
   </section>
-  <section class="navy" id="depoimentos">
+  <div class="stats">
+    <div class="stat"><strong data-count="9" data-suffix=" dias">0</strong><span>média até a shortlist</span></div>
+    <div class="stat"><strong data-count="5">0</strong><span>opções por briefing</span></div>
+    <div class="stat"><strong>ABC</strong><span>foco geográfico</span></div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Compra</span><span>Aluguel</span><span>Pet friendly</span><span>Metrô perto</span><span>Financiamento</span>
+      <span>Compra</span><span>Aluguel</span><span>Pet friendly</span><span>Metrô perto</span><span>Financiamento</span>
+    </div>
+  </div>
+  <section class="wrap" id="sobre">
+    <div class="split">
+      <div data-reveal>
+        <h2>Corretores que respondem de verdade.</h2>
+        <p class="lead">Time pequeno em São Caetano. Não empurramos imóvel que você não pediu.</p>
+        <p>Cada lead vira conversa: quartos, pet, metrô, se o financiamento já foi pré-aprovado. Documentação até a chave.</p>
+      </div>
+      <img data-reveal src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="Sala de um apartamento" />
+    </div>
+  </section>
+  <section class="tint" id="servicos">
     <div class="wrap">
-      <h2>Quem já mudou com a gente</h2>
-      <p class="lead">Histórias reais de compra e aluguel no ABC.</p>
-      <div class="depos">
-        <blockquote class="depo">“Achei apto em 9 dias. As outras imobiliárias mandavam 40 links sem filtro.”<strong>Juliana, Santo André</strong></blockquote>
-        <blockquote class="depo">“Aluguei meu apto em 3 semanas, inquilino conferido. Processo limpo.”<strong>Marcos, São Bernardo</strong></blockquote>
+      <h2 data-reveal>Como a gente trabalha</h2>
+      <p class="lead" data-reveal>Três passos. Sem 40 links no WhatsApp.</p>
+      <div class="bento">
+        <article class="cell wide" data-reveal>
+          <h3>1. Briefing</h3>
+          <p>Orçamento, bairro e o que é inegociável. Quinze minutos no Zap e a gente já sabe o que não mostrar.</p>
+        </article>
+        <article class="cell" data-reveal>
+          <h3>2. Shortlist</h3>
+          <p>Até 5 opções reais, com o ponto negativo dito na lata.</p>
+        </article>
+        <article class="cell" data-reveal>
+          <h3>3. Visita e proposta</h3>
+          <p>Agendamos juntos. Se fechar, tocamos contrato e chaves.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="wrap" id="prova">
+    <h2 data-reveal>Quem já mudou com a gente</h2>
+    <div class="depos" style="margin-top:28px">
+      <blockquote class="depo" data-reveal>“Achei apto em 9 dias. As outras mandavam 40 links sem filtro.”<strong>Juliana · Santo André</strong></blockquote>
+      <blockquote class="depo" data-reveal>“Aluguei meu apto em 3 semanas, inquilino conferido.”<strong>Marcos · São Bernardo</strong></blockquote>
+    </div>
+    <div class="faq" data-faq style="margin-top:48px">
+      <div data-faq-item>
+        <button type="button">Vocês cobram do comprador? <span>+</span></button>
+        <p>Na compra, a comissão sai do anunciante. No aluguel, explicamos a taxa antes da visita.</p>
+      </div>
+      <div data-faq-item>
+        <button type="button">Atendem fora do ABC? <span>+</span></button>
+        <p>Foco no ABC. Capital só se o briefing pedir e fizer sentido operacional.</p>
+      </div>
+      <div data-faq-item>
+        <button type="button">Posso anunciar meu imóvel? <span>+</span></button>
+        <p>Sim. Avaliação, foto honesta e filtro de inquilino. Marca no formulário “anunciar”.</p>
       </div>
     </div>
   </section>
   <section class="wrap" id="contato">
-    <h2>Conte o que você procura</h2>
+    <h2 data-reveal>Conte o que você procura</h2>
     <div class="contact">
-      <form onsubmit="event.preventDefault(); this.querySelector('.ok').style.display='block';">
+      <form data-demo>
         <input type="text" placeholder="Nome" required />
         <input type="tel" placeholder="WhatsApp" required />
         <select>
@@ -128,12 +124,13 @@
         <button class="btn btn-a" type="submit">Enviar</button>
         <p class="ok">Recebido. Este é um exemplo — nenhum dado foi enviado.</p>
       </form>
-      <div>
+      <div data-reveal>
         <p>Av. Goiás, 890 · São Caetano do Sul<br />Seg–Sáb 9h–18h</p>
-        <p style="margin-top:16px"><a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp da equipe</a></p>
+        <p style="margin-top:18px"><a class="btn wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp da equipe</a></p>
       </div>
     </div>
   </section>
-  <footer>Imobiliária Ninho Certo · Exemplo ATTO</footer>
+  <footer><div class="ft"><span>Ninho Certo · Exemplo Essencial ATTO</span><a href="#inicio">Topo</a></div></footer>
+  <script src="./assets/essencial.js"></script>
 </body>
 </html>

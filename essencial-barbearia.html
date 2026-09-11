@@ -3,135 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barbearia Cavalera | Cortes em Moema</title>
-  <meta name="description" content="Barbearia em Moema: corte, barba e horário marcado. Agende pelo WhatsApp." />
+  <title>Barbearia Cavalera | Corte e barba em Moema</title>
+  <meta name="description" content="Barbearia clássica em Moema. Hora marcada, tesoura que não puxa, WhatsApp no mesmo minuto." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/essencial.css" />
   <style>
-    :root { --ink:#1b1612; --gold:#c9a15b; --paper:#f6f1e8; --muted:#6b6156; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: "Source Sans 3", sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    .demo { background: #0d0b09; color: #a8a49f; font-size: 11px; letter-spacing: .08em; padding: 8px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .demo a { color: #f8f5f1; font-weight: 500; letter-spacing: .08em; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; background: var(--ink); color: #f6f1e8; }
-    .logo { font-family: Oswald, sans-serif; letter-spacing: .12em; font-size: 1.05rem; }
-    .nav-links { display: flex; gap: 16px; font-size: 13px; font-weight: 600; }
-    .nav-links a:hover { color: var(--gold); }
-    .hero { min-height: 72vh; background: linear-gradient(120deg, rgba(27,22,18,.82), rgba(27,22,18,.45)), url("https://images.unsplash.com/photo-1503951914875-834188fe479d?auto=format&fit=crop&w=1800&q=80") center/cover; color: #fff; display: flex; align-items: center; padding: 64px 22px; }
-    .hero-inner { max-width: 640px; }
-    .kicker { color: var(--gold); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
-    h1 { font-family: Oswald, sans-serif; font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1; margin: 10px 0 16px; }
-    .hero p { max-width: 42ch; opacity: .92; margin-bottom: 24px; }
-    .btn { display: inline-block; padding: 13px 20px; font-weight: 800; border-radius: 4px; }
-    .btn-gold { background: var(--gold); color: #1b1612; }
-    .btn-wa { background: #25d366; color: #062d14; margin-left: 8px; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 72px 22px; }
-    h2 { font-family: Oswald, sans-serif; font-size: clamp(1.6rem, 3vw, 2.1rem); letter-spacing: .04em; margin-bottom: 10px; }
-    .lead { color: var(--muted); max-width: 50ch; margin-bottom: 28px; }
-    .sobre-grid { display: grid; gap: 32px; align-items: center; }
-    @media (min-width: 800px) { .sobre-grid { grid-template-columns: 1.1fr .9fr; } .nav-links { display: flex; } }
-    @media (max-width: 799px) { .nav-links { display: none; } }
-    .sobre-grid img { width: 100%; height: 320px; object-fit: cover; border-radius: 8px; }
-    .stats { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
-    .stats strong { display: block; font-family: Oswald, sans-serif; font-size: 1.8rem; color: var(--gold); }
-    .stats span { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-    .tint { background: #efe6d6; }
-    .cards { display: grid; gap: 16px; grid-template-columns: 1fr; }
-    @media (min-width: 700px) { .cards { grid-template-columns: repeat(3, 1fr); } }
-    .card { background: #fff; padding: 22px; border-radius: 10px; border: 1px solid rgba(27,22,18,.08); }
-    .card h3 { font-family: Oswald, sans-serif; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: .95rem; }
-    .price { margin-top: 12px; font-weight: 800; color: var(--ink); }
-    .depos { display: grid; gap: 14px; }
-    @media (min-width: 700px) { .depos { grid-template-columns: 1fr 1fr; } }
-    .depo { background: #fff; padding: 20px; border-left: 3px solid var(--gold); }
-    .depo strong { display: block; margin-top: 10px; font-size: 13px; }
-    .contact { display: grid; gap: 28px; }
-    @media (min-width: 800px) { .contact { grid-template-columns: 1fr 1fr; } }
-    form { display: grid; gap: 10px; }
-    input, textarea { width: 100%; padding: 12px; border: 1px solid #d8cbb6; border-radius: 6px; font: inherit; }
-    textarea { min-height: 100px; }
-    button { background: var(--ink); color: var(--gold); border: 0; padding: 13px; font-weight: 800; cursor: pointer; }
-    .ok { display: none; color: #0a7a3a; font-weight: 700; }
-    footer { background: var(--ink); color: #c9bfb2; text-align: center; padding: 28px 16px; font-size: 13px; }
+    :root {
+      --ink: #1b1612; --paper: #f6f1e8; --tint: #efe6d6; --line: #e3d8c6;
+      --muted: #6b6156; --accent: #c9a15b; --on-accent: #1b1612;
+      --display: Oswald; --sans: "Source Sans 3"; --radius: 4px;
+    }
+    .logo { font-family: Oswald, sans-serif; letter-spacing: .14em; }
   </style>
 </head>
 <body>
-  <div class="demo">
-    <a href="./index.html">← ATTO · Exemplos</a>
-    <span>Plano Essencial · R$ 997 · 5 seções · SEO básico</span>
-  </div>
-  <nav>
-    <div class="logo">CAVALERA</div>
-    <div class="nav-links">
-      <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#depoimentos">Clientes</a>
-      <a href="#contato">Contato</a>
-    </div>
-    <a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
-  </nav>
-  <header class="hero">
-    <div class="hero-inner">
-      <p class="kicker">Moema · São Paulo</p>
-      <h1>Corte certo. Barba alinhada. Sem espera.</h1>
-      <p>Barbearia clássica com hora marcada. Cadeira confortável, navalha afiada e playlist boa.</p>
-      <a class="btn btn-gold" href="#contato">Agendar horário</a>
-      <a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">Chamar no Zap</a>
+  <div class="demo"><a href="./index.html">← ATTO · Exemplos</a><span>Essencial · R$ 597 · campanha completa</span></div>
+  <header class="nav" data-nav>
+    <div class="nav-inner">
+      <a class="logo" href="#inicio">CAVALERA</a>
+      <button class="burger" data-burger type="button" aria-label="Menu">☰</button>
+      <nav class="menu" data-menu>
+        <a href="#sobre">A casa</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#prova">Clientes</a>
+        <a href="#contato">Agendar</a>
+        <a class="wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
     </div>
   </header>
-  <section class="wrap" id="sobre">
-    <h2>A casa</h2>
-    <p class="lead">Abrimos em 2019 para quem quer conversa curta ou silêncio — você escolhe. Produtos premium e tesoura que não puxa.</p>
-    <div class="sobre-grid">
-      <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=1100&amp;q=80" alt="Interior de barbearia" />
-      <div>
-        <p>Dois barbeiros, uma recepção e café pingado. Atendemos terça a sábado, das 10h às 20h. Estacionamento no prédio ao lado.</p>
-        <div class="stats">
-          <div><strong>6 mil+</strong><span>cortes feitos</span></div>
-          <div><strong>4,9</strong><span>nota no Google</span></div>
-          <div><strong>30 min</strong><span>média de espera zero</span></div>
-        </div>
+  <section class="hero" id="inicio">
+    <div class="hero-media" data-hero-media style="background-image:url('./thumbs/essencial-barbearia.jpg')"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-copy" data-hero-copy>
+      <p class="kicker">Moema · São Paulo</p>
+      <h1>Corte certo. Sem espera.</h1>
+      <p>Barbearia clássica com hora marcada. Cadeira boa, navalha afiada, conversa curta se você quiser silêncio.</p>
+      <div class="btns">
+        <a class="btn btn-a" href="#contato">Agendar horário</a>
+        <a class="btn btn-d" href="https://wa.me/5511996077349" target="_blank" rel="noopener">Chamar no Zap</a>
       </div>
+    </div>
+  </section>
+  <div class="stats">
+    <div class="stat"><strong data-count="6000" data-suffix="+">0</strong><span>cortes feitos</span></div>
+    <div class="stat"><strong>4,9</strong><span>nota no Google</span></div>
+    <div class="stat"><strong data-count="30" data-suffix=" min">0</strong><span>média de espera</span></div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Tesoura japonesa</span><span>Toalha quente</span><span>Hora marcada</span><span>Café pingado</span><span>Produto premium</span>
+      <span>Tesoura japonesa</span><span>Toalha quente</span><span>Hora marcada</span><span>Café pingado</span><span>Produto premium</span>
+    </div>
+  </div>
+  <section class="wrap" id="sobre">
+    <div class="split">
+      <div data-reveal>
+        <h2>Uma casa para quem odeia fila.</h2>
+        <p class="lead">Abrimos em 2019 para o corte ficar no horário. Dois barbeiros, uma recepção, estacionamento no prédio ao lado.</p>
+        <p>Você escolhe conversa ou silêncio. Produto que não arde, tesoura que não puxa, combo no balcão se vier os dois.</p>
+      </div>
+      <img data-reveal src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80" alt="Interior da Cavalera" />
     </div>
   </section>
   <section class="tint" id="servicos">
     <div class="wrap">
-      <h2>Serviços</h2>
-      <p class="lead">Valores de referência. Combo sai mais em conta no balcão.</p>
-      <div class="cards">
-        <article class="card"><h3>Corte</h3><p>Máquina e tesoura, finalização com tônica. Inclui lavagem rápida.</p><p class="price">R$ 65</p></article>
-        <article class="card"><h3>Barba</h3><p>Toalha quente, navalha e óleo. Contorno limpo.</p><p class="price">R$ 50</p></article>
-        <article class="card"><h3>Corte + barba</h3><p>O pacote da casa. Sai pronto para reunião ou sexta.</p><p class="price">R$ 100</p></article>
+      <h2 data-reveal>O que a cadeira entrega</h2>
+      <p class="lead" data-reveal>Valores de referência. Combo sai mais em conta no balcão.</p>
+      <div class="bento">
+        <article class="cell wide" data-reveal>
+          <h3>Corte + barba</h3>
+          <p>O pacote da casa. Lavagem, tesoura, toalha quente e óleo. Sai pronto para reunião ou sexta. R$ 100.</p>
+        </article>
+        <article class="cell" data-reveal>
+          <h3>Corte</h3>
+          <p>Máquina e tesoura, tônica, 35 minutos. R$ 65.</p>
+        </article>
+        <article class="cell" data-reveal>
+          <h3>Barba</h3>
+          <p>Navalha, contorno limpo, toalha quente. R$ 50.</p>
+        </article>
       </div>
     </div>
   </section>
-  <section class="wrap" id="depoimentos">
-    <h2>Quem senta aqui</h2>
-    <div class="depos">
-      <blockquote class="depo">“Marquei pelo WhatsApp, cheguei e sentei. Corte do jeito que pedi, sem enrolação.”<strong>Rafael, Vila Nova Conceição</strong></blockquote>
-      <blockquote class="depo">“Barba mais alinhada que já fiz em SP. Virei cliente fixo.”<strong>André, Moema</strong></blockquote>
+  <section class="wrap" id="prova">
+    <h2 data-reveal>Quem senta aqui</h2>
+    <div class="depos" style="margin-top:28px">
+      <blockquote class="depo" data-reveal>“Marquei pelo WhatsApp, cheguei e sentei. Corte do jeito que pedi, sem enrolação.”<strong>Rafael · Vila Nova Conceição</strong></blockquote>
+      <blockquote class="depo" data-reveal>“Barba mais alinhada que já fiz em SP. Virei cliente fixo.”<strong>André · Moema</strong></blockquote>
+    </div>
+    <div class="faq" data-faq style="margin-top:48px">
+      <div data-faq-item>
+        <button type="button">Precisa marcar? <span>+</span></button>
+        <p>Sim. WhatsApp ou o formulário abaixo. Encaixe no mesmo dia só se abrir furo.</p>
+      </div>
+      <div data-faq-item>
+        <button type="button">Aceita cartão? <span>+</span></button>
+        <p>Cartão, PIX e dinheiro. Combo no débito não muda o valor.</p>
+      </div>
+      <div data-faq-item>
+        <button type="button">Tem estacionamento? <span>+</span></button>
+        <p>No prédio ao lado, 1 hora cortesia com o ticket da recepção.</p>
+      </div>
     </div>
   </section>
   <section class="wrap" id="contato">
-    <h2>Agendar</h2>
+    <h2 data-reveal>Pedir horário</h2>
+    <p class="lead" data-reveal>Diz o serviço e a janela. A gente confirma no Zap.</p>
     <div class="contact">
-      <form onsubmit="event.preventDefault(); this.querySelector('.ok').style.display='block';">
+      <form data-demo>
         <input type="text" placeholder="Nome" required />
         <input type="tel" placeholder="WhatsApp" required />
         <textarea placeholder="Serviço e horário preferido"></textarea>
-        <button type="submit">Pedir horário</button>
+        <button class="btn btn-a" type="submit">Enviar pedido</button>
         <p class="ok">Recebido. Este é um exemplo — nenhum dado foi enviado.</p>
       </form>
-      <div>
+      <div data-reveal>
         <p>Rua Gaivota, 1200 · Moema<br />Ter–Sáb 10h–20h</p>
-        <p style="margin-top:16px"><a class="btn btn-wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">Abrir WhatsApp</a></p>
+        <p style="margin-top:18px"><a class="btn wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">Abrir WhatsApp</a></p>
       </div>
     </div>
   </section>
-  <footer>Barbearia Cavalera · Exemplo ATTO · SEO title/meta neste HTML</footer>
+  <footer><div class="ft"><span>Cavalera · Exemplo Essencial ATTO</span><a href="#inicio">Topo</a></div></footer>
+  <script src="./assets/essencial.js"></script>
 </body>
 </html>
