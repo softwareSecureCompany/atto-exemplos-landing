@@ -11,46 +11,57 @@
   <link rel="stylesheet" href="./assets/essencial.css" />
   <style>
     :root {
-      --ink: #17335a; --paper: #fff; --tint: #f3eee6; --line: #ece7de;
+      --ink: #122844; --paper: #f7f3ec; --tint: #ece4d6; --line: #e0d8cc;
       --muted: #5c6570; --accent: #e07a3d; --on-accent: #fff;
-      --display: "Cormorant Garamond"; --sans: Manrope; --radius: 10px;
+      --display: "Cormorant Garamond"; --sans: Manrope;
     }
-    .logo { font-weight: 800; font-family: Manrope, sans-serif; }
-    .hero-veil { background: linear-gradient(100deg, rgba(23,51,90,.88), rgba(23,51,90,.28)); }
+    .logo { font-weight: 800; font-family: Manrope, sans-serif; letter-spacing: 0; }
+    .close-copy { background: #122844; }
   </style>
 </head>
 <body>
-  <div class="demo"><a href="./index.html">← ATTO · Exemplos</a><span>Essencial · R$ 597 · campanha completa</span></div>
+  <div class="progress" data-progress></div>
+  <div class="demo"><a href="./index.html">← ATTO · Exemplos</a><span>Essencial · R$ 597</span></div>
   <header class="nav" data-nav>
     <div class="nav-inner">
       <a class="logo" href="#inicio">Ninho Certo</a>
       <button class="burger" data-burger type="button" aria-label="Menu">☰</button>
       <nav class="menu" data-menu>
-        <a href="#sobre">Quem somos</a>
-        <a href="#servicos">Como funciona</a>
+        <a href="#metodo">Método</a>
+        <a href="#servicos">Passos</a>
         <a href="#prova">Clientes</a>
         <a href="#contato">Contato</a>
         <a class="wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
       </nav>
     </div>
   </header>
+
   <section class="hero" id="inicio">
-    <div class="hero-media" data-hero-media style="background-image:url('./thumbs/essencial-imobiliaria.jpg')"></div>
-    <div class="hero-veil"></div>
-    <div class="hero-copy" data-hero-copy>
-      <p class="kicker">ABC Paulista</p>
-      <h1>Imóvel certo, sem fim de semana perdido.</h1>
-      <p>Filtramos o que cabe no orçamento e no bairro. Você visita só o que faz sentido.</p>
+    <div>
+      <p class="kicker"><i></i> ABC Paulista</p>
+      <h1>
+        <span class="line"><span>Imóvel certo.</span></span>
+        <span class="line"><span>Sem fim de</span></span>
+        <span class="line"><span>semana perdido.</span></span>
+      </h1>
+      <p class="hero-lead">Filtramos o que cabe no orçamento e no bairro. Você visita só o que faz sentido — sem 40 links no Zap.</p>
       <div class="btns">
         <a class="btn btn-a" href="#contato">Quero um imóvel</a>
-        <a class="btn btn-d" href="https://wa.me/5511996077349" target="_blank" rel="noopener">Falar agora</a>
+        <a class="btn btn-g" href="https://wa.me/5511996077349" target="_blank" rel="noopener">Falar agora</a>
       </div>
+      <div class="chip"><b>São Caetano</b> · Av. Goiás, 890 · Seg–Sáb 9h–18h</div>
+    </div>
+    <div class="stack">
+      <div class="shot shot-a" data-p="0.15"><img src="./thumbs/essencial-imobiliaria.jpg" alt="Chaves" /></div>
+      <div class="shot shot-b" data-p="0.24"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80" alt="Sala" /></div>
+      <div class="shot shot-c" data-p="0.1"><img src="./thumbs/essencial-imobiliaria.jpg" alt="" style="object-position:80% 30%" /></div>
     </div>
   </section>
+
   <div class="stats">
-    <div class="stat"><strong data-count="9" data-suffix=" dias">0</strong><span>média até a shortlist</span></div>
+    <div class="stat"><strong data-count="9" data-suffix="d">0</strong><span>até a shortlist</span></div>
     <div class="stat"><strong data-count="5">0</strong><span>opções por briefing</span></div>
-    <div class="stat"><strong>ABC</strong><span>foco geográfico</span></div>
+    <div class="stat"><strong>ABC</strong><span>só o que conhecemos</span></div>
   </div>
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
@@ -58,60 +69,76 @@
       <span>Compra</span><span>Aluguel</span><span>Pet friendly</span><span>Metrô perto</span><span>Financiamento</span>
     </div>
   </div>
-  <section class="wrap" id="sobre">
-    <div class="split">
-      <div data-reveal>
-        <h2>Corretores que respondem de verdade.</h2>
-        <p class="lead">Time pequeno em São Caetano. Não empurramos imóvel que você não pediu.</p>
-        <p>Cada lead vira conversa: quartos, pet, metrô, se o financiamento já foi pré-aprovado. Documentação até a chave.</p>
-      </div>
-      <img data-reveal src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="Sala de um apartamento" />
+
+  <section class="pin" id="metodo">
+    <div class="pin-media" data-clip>
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80" alt="Fachada" />
+    </div>
+    <div>
+      <article class="chapter" data-reveal>
+        <h2>Corretores que respondem.</h2>
+        <p>Time pequeno em São Caetano. Não empurramos imóvel que você não pediu. Cada lead vira conversa: quartos, pet, metrô, financiamento.</p>
+      </article>
+      <article class="chapter" data-reveal>
+        <h2>Ponto negativo na lata.</h2>
+        <p>A shortlist vem com o que o anúncio esconde. Se o sol não entra, a gente fala. Documentação acompanhada até a chave.</p>
+      </article>
+      <article class="chapter" data-reveal>
+        <h2>Foco no ABC.</h2>
+        <p>Santo André, São Bernardo, São Caetano. Capital só se o briefing pedir e fizer sentido operacional.</p>
+      </article>
     </div>
   </section>
-  <section class="tint" id="servicos">
-    <div class="wrap">
-      <h2 data-reveal>Como a gente trabalha</h2>
-      <p class="lead" data-reveal>Três passos. Sem 40 links no WhatsApp.</p>
-      <div class="bento">
-        <article class="cell wide" data-reveal>
-          <h3>1. Briefing</h3>
-          <p>Orçamento, bairro e o que é inegociável. Quinze minutos no Zap e a gente já sabe o que não mostrar.</p>
-        </article>
-        <article class="cell" data-reveal>
-          <h3>2. Shortlist</h3>
-          <p>Até 5 opções reais, com o ponto negativo dito na lata.</p>
-        </article>
-        <article class="cell" data-reveal>
-          <h3>3. Visita e proposta</h3>
-          <p>Agendamos juntos. Se fechar, tocamos contrato e chaves.</p>
-        </article>
-      </div>
-    </div>
+
+  <div class="essay">
+    <img class="tall" data-clip src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Casa" />
+    <img data-clip src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Interior" />
+    <img data-clip src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Cozinha" />
+  </div>
+
+  <section class="menu-list" id="servicos">
+    <h2 data-reveal>Três passos. Sem 40 links.</h2>
+    <p data-reveal style="color:var(--muted);margin:8px 0 28px">Você sabe em que fase está.</p>
+    <article class="row" data-reveal>
+      <span class="n">01</span>
+      <div><h3>Briefing</h3><p>Orçamento, bairro e o que é inegociável. Quinze minutos no Zap.</p></div>
+      <span class="price">15 min</span>
+    </article>
+    <article class="row" data-reveal>
+      <span class="n">02</span>
+      <div><h3>Shortlist</h3><p>Até 5 opções reais, com o ponto negativo dito na lata.</p></div>
+      <span class="price">5 imóveis</span>
+    </article>
+    <article class="row" data-reveal>
+      <span class="n">03</span>
+      <div><h3>Visita e proposta</h3><p>Agendamos juntos. Se fechar, tocamos contrato e chaves.</p></div>
+      <span class="price">Até a chave</span>
+    </article>
   </section>
-  <section class="wrap" id="prova">
-    <h2 data-reveal>Quem já mudou com a gente</h2>
-    <div class="depos" style="margin-top:28px">
-      <blockquote class="depo" data-reveal>“Achei apto em 9 dias. As outras mandavam 40 links sem filtro.”<strong>Juliana · Santo André</strong></blockquote>
-      <blockquote class="depo" data-reveal>“Aluguei meu apto em 3 semanas, inquilino conferido.”<strong>Marcos · São Bernardo</strong></blockquote>
-    </div>
-    <div class="faq" data-faq style="margin-top:48px">
-      <div data-faq-item>
-        <button type="button">Vocês cobram do comprador? <span>+</span></button>
-        <p>Na compra, a comissão sai do anunciante. No aluguel, explicamos a taxa antes da visita.</p>
-      </div>
-      <div data-faq-item>
-        <button type="button">Atendem fora do ABC? <span>+</span></button>
-        <p>Foco no ABC. Capital só se o briefing pedir e fizer sentido operacional.</p>
-      </div>
-      <div data-faq-item>
-        <button type="button">Posso anunciar meu imóvel? <span>+</span></button>
-        <p>Sim. Avaliação, foto honesta e filtro de inquilino. Marca no formulário “anunciar”.</p>
-      </div>
-    </div>
+
+  <section class="quote">
+    <div class="quote-bg" data-quote style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=2000&q=80')"></div>
+    <q>Achei apto em 9 dias. Sem 40 links.</q>
   </section>
-  <section class="wrap" id="contato">
-    <h2 data-reveal>Conte o que você procura</h2>
-    <div class="contact">
+
+  <section class="depos" id="prova">
+    <blockquote class="depo" data-reveal>“As outras imobiliárias mandavam pasta de anúncio. Aqui filtrou.”<strong>Juliana · Santo André</strong></blockquote>
+    <blockquote class="depo" data-reveal>“Aluguei em 3 semanas, inquilino conferido.”<strong>Marcos · São Bernardo</strong></blockquote>
+    <blockquote class="depo" data-reveal>“Financiamento acompanhado até o banco. Processo limpo.”<strong>Carla · São Caetano</strong></blockquote>
+  </section>
+
+  <section class="close" id="contato">
+    <div class="close-copy">
+      <div>
+        <h2>Conte o que procura.</h2>
+        <p>Bairro, valor e o que não pode faltar. A gente volta com horários — não com 40 fotos aleatórias.</p>
+      </div>
+      <div>
+        <p>Av. Goiás, 890 · São Caetano do Sul<br />Seg–Sáb 9h–18h</p>
+        <p style="margin-top:18px"><a class="btn wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp da equipe</a></p>
+      </div>
+    </div>
+    <div class="panel">
       <form data-demo>
         <input type="text" placeholder="Nome" required />
         <input type="tel" placeholder="WhatsApp" required />
@@ -124,13 +151,14 @@
         <button class="btn btn-a" type="submit">Enviar</button>
         <p class="ok">Recebido. Este é um exemplo — nenhum dado foi enviado.</p>
       </form>
-      <div data-reveal>
-        <p>Av. Goiás, 890 · São Caetano do Sul<br />Seg–Sáb 9h–18h</p>
-        <p style="margin-top:18px"><a class="btn wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp da equipe</a></p>
+      <div class="faq" data-faq style="margin-top:28px">
+        <div data-faq-item><button type="button">Cobram do comprador? <span>+</span></button><p>Na compra, a comissão sai do anunciante. No aluguel, a taxa vem antes da visita.</p></div>
+        <div data-faq-item><button type="button">Fora do ABC? <span>+</span></button><p>Foco no ABC. Capital só se o briefing pedir.</p></div>
+        <div data-faq-item><button type="button">Anunciar meu imóvel? <span>+</span></button><p>Avaliação, foto honesta e filtro de inquilino. Marca “anunciar” no formulário.</p></div>
       </div>
     </div>
   </section>
-  <footer><div class="ft"><span>Ninho Certo · Exemplo Essencial ATTO</span><a href="#inicio">Topo</a></div></footer>
+  <footer><div class="ft"><span>Ninho Certo · Essencial ATTO</span><a href="#inicio">Topo</a></div></footer>
   <script src="./assets/essencial.js"></script>
 </body>
 </html>

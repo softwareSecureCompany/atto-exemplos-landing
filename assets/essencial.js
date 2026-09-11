@@ -1,20 +1,15 @@
 (() => {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.body.classList.add("booted");
 
   const burger = document.querySelector("[data-burger]");
   const menu = document.querySelector("[data-menu]");
-  burger?.addEventListener("click", () => {
-    const open = menu.classList.toggle("open");
-    burger.setAttribute("aria-expanded", String(open));
-  });
-  menu?.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => menu.classList.remove("open"))
-  );
+  burger?.addEventListener("click", () => menu.classList.toggle("open"));
+  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => menu.classList.remove("open")));
 
   const nav = document.querySelector("[data-nav]");
-  const onScrollNav = () => nav?.classList.toggle("scrolled", window.scrollY > 12);
-  addEventListener("scroll", onScrollNav, { passive: true });
-  onScrollNav();
+  const bar = document.querySelector("[data-progress]");
+  addEventListener("scroll", () => nav?.classList.toggle("scrolled", scrollY > 8), { passive: true });
 
   document.querySelectorAll("[data-faq] button").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -33,7 +28,6 @@
     });
   });
 
-  const reveals = [...document.querySelectorAll("[data-reveal]")];
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((en) => {
@@ -43,9 +37,9 @@
         }
       });
     },
-    { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
   );
-  reveals.forEach((el) => io.observe(el));
+  document.querySelectorAll("[data-reveal], [data-clip]").forEach((el) => io.observe(el));
 
   document.querySelectorAll("[data-count]").forEach((el) => {
     const target = Number(el.dataset.count);
@@ -60,9 +54,8 @@
       }
       const start = performance.now();
       const tick = (now) => {
-        const t = Math.min(1, (now - start) / 1100);
-        const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = prefix + Math.round(target * eased) + suffix;
+        const t = Math.min(1, (now - start) / 1200);
+        el.textContent = prefix + Math.round(target * (1 - Math.pow(1 - t, 3))) + suffix;
         if (t < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
@@ -72,13 +65,24 @@
 
   if (reduce) return;
 
-  const heroMedia = document.querySelector("[data-hero-media]");
-  const heroCopy = document.querySelector("[data-hero-copy]");
-  let sy = 0;
+  const shots = [...document.querySelectorAll("[data-p]")];
+  const quote = document.querySelector("[data-quote]");
+  let mx = 0, my = 0, tx = 0, ty = 0, sy = 0;
+  addEventListener("mousemove", (e) => {
+    mx = e.clientX / innerWidth - 0.5;
+    my = e.clientY / innerHeight - 0.5;
+  });
   const loop = () => {
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    if (bar) bar.style.transform = `scaleX(${scrollY / max})`;
     sy += (scrollY - sy) * 0.08;
-    if (heroMedia) heroMedia.style.transform = `translate3d(0, ${sy * 0.22}px, 0) scale(1.12)`;
-    if (heroCopy) heroCopy.style.transform = `translate3d(0, ${sy * 0.12}px, 0)`;
+    tx += (mx - tx) * 0.08;
+    ty += (my - ty) * 0.08;
+    shots.forEach((el) => {
+      const p = Number(el.dataset.p) || 0.12;
+      el.style.transform = `translate3d(${tx * p * 36}px, ${sy * p * 0.18}px, 0)`;
+    });
+    if (quote) quote.style.transform = `translate3d(0, ${sy * 0.08}px, 0) scale(1.08)`;
     requestAnimationFrame(loop);
   };
   loop();
