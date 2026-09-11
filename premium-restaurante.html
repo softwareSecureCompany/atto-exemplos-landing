@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <div class="demo"><a href="./index.html">← ATTO · Exemplos</a><span>Premium · R$ 1.250 · 3D · parallax</span></div>
+  <div class="demo"><a href="./index.html">← ATTO · Exemplos</a><span>Premium · R$ 1.250</span></div>
   <div class="progress" data-progress></div>
   <div class="grain"></div>
   <div class="vignette"></div>
@@ -30,99 +30,188 @@
     <a class="logo" href="#topo">Osteria Luce</a>
     <button class="burger" data-burger type="button" aria-label="Menu">☰</button>
     <div class="links" data-menu>
-      <a href="#casa">Casa</a>
-      <a href="#menu">Menu</a>
-      <a href="#noite">Noite</a>
+      <a href="#casa">A casa</a>
+      <a href="#carta">Carta</a>
+      <a href="#sala">A sala</a>
       <a href="#reserva">Reserva</a>
     </div>
     <a class="wa" href="https://wa.me/5511996077349" target="_blank" rel="noopener">WhatsApp</a>
   </nav>
 
-  <header class="stage" id="topo" data-hero>
-    <div class="world" data-world>
-      <div class="hero-bg" data-speed="0.18" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=80');filter:brightness(.38) saturate(.85)"></div>
-      <div class="glow" style="width:280px;height:280px;top:8%;left:18%;background:radial-gradient(circle,rgba(212,180,131,.28),transparent 70%);transform:translateZ(40px)"></div>
-      <div class="float float-a">
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="" />
-      </div>
-      <div class="float float-b">
-        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" alt="" />
-      </div>
-      <div class="float float-c">
-        <img src="https://images.unsplash.com/photo-1544025162-d766403159a1?auto=format&fit=crop&w=600&q=80" alt="" />
+  <header class="stage" id="topo">
+    <div class="stage-media" data-hero-media>
+      <img src="./thumbs/premium-restaurante.jpg" alt="Sala da Osteria Luce" />
+    </div>
+    <div class="stage-shade"></div>
+    <div class="stage-copy">
+      <p class="k"><i></i> Pinheiros · São Paulo</p>
+      <h1>
+        <span class="line">A sala</span>
+        <span class="line">acende às 19h.</span>
+      </h1>
+      <p class="hero-lead">Massa fresca, fogo baixo, carta curta. Uma sala, um ritmo, nenhuma pressa.</p>
+      <div class="hero-actions">
+        <a class="btn filled" data-magnetic href="#reserva">Reservar mesa</a>
+        <a class="btn ghost" href="#carta">Ver a carta</a>
       </div>
     </div>
-    <div class="hero-copy">
-      <div>
-        <p class="k"><i></i> Pinheiros · São Paulo</p>
-        <h1><span class="line">A sala</span><span class="line">acende às 19h.</span></h1>
-        <p>Massa fresca, fogo baixo, carta curta. Uma sala, um ritmo, nenhuma pressa.</p>
-        <a class="btn btn-a filled" data-magnetic href="#reserva">Reservar mesa</a>
-      </div>
-    </div>
+    <aside class="tonight">
+      <p class="tonight-k">Hoje na casa</p>
+      <p class="tonight-t">Risotto de ossobuco</p>
+      <p class="tonight-s">Só na reserva · 12 porções</p>
+    </aside>
   </header>
+  <div class="hero-stats">
+    <div><strong data-count="42">0</strong><span>lugares</span></div>
+    <div><strong>19h</strong><span>primeira mesa</span></div>
+    <div><strong>2h</strong><span>mínimo na mesa</span></div>
+  </div>
 
   <div class="marquee" aria-hidden="true">
     <div class="mq">
-      <span>Massa do dia</span><span>Vinho do norte</span><span>42 lugares</span><span>Cozinha aberta</span><span>Sem pressa</span>
-      <span>Massa do dia</span><span>Vinho do norte</span><span>42 lugares</span><span>Cozinha aberta</span><span>Sem pressa</span>
+      <span>Massa do dia</span><span>Vinho do norte</span><span>Cozinha aberta</span><span>Carta curta</span><span>Sem pressa</span>
+      <span>Massa do dia</span><span>Vinho do norte</span><span>Cozinha aberta</span><span>Carta curta</span><span>Sem pressa</span>
     </div>
   </div>
 
   <section class="wrap" id="casa">
     <div class="split">
       <div data-reveal>
+        <p class="k"><i></i> A casa</p>
         <h2>Comer bem é um ato de memória.</h2>
-        <p class="lead">Cozinha aberta, chef à vista, produtores de Campos e importados pontuais. O cardápio muda a cada lua.</p>
-        <p>Se veio atrás de um prato que viu no Instagram, pergunta — talvez ainda esteja na casa.</p>
+        <p class="lead">Cozinha aberta, chef à vista, produtores de Campos do Jordão e importados pontuais. O cardápio muda a cada lua — se veio atrás de um prato que viu no Instagram, pergunta. Talvez ainda esteja.</p>
       </div>
-      <div data-tilt data-reveal style="overflow:hidden">
-        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80" alt="Sala" style="width:100%;height:440px;object-fit:cover;display:block" />
+      <div class="shot" data-tilt data-clip>
+        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1400&q=80" alt="Sala da osteria" />
       </div>
     </div>
   </section>
 
-  <section class="wrap" id="menu">
-    <h2 data-reveal>Menu de temporada</h2>
-    <p class="lead" data-reveal>Passe o mouse. Os pratos ganham volume. Reserva garante o risotto do dia.</p>
-    <div class="grid3">
-      <article class="card" data-tilt data-reveal><h3>Burrata ao fogo</h3><p>Tomate assado, azeite da Ligúria. R$ 64.</p></article>
-      <article class="card" data-tilt data-reveal><h3>Tagliatelle al ragù</h3><p>Ossobuco 7 horas, parmesão 24 meses. R$ 89.</p></article>
-      <article class="card" data-tilt data-reveal><h3>Branzino na brasa</h3><p>Funcho, limão siciliano, noisette. R$ 128.</p></article>
+  <section class="pin">
+    <div class="pin-media" data-clip>
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80" alt="Prato da casa" />
+    </div>
+    <div>
+      <article class="chapter" data-reveal>
+        <h2>Fogo baixo, massa do dia.</h2>
+        <p>O tagliatelle sai da cilindra de manhã. O ragù de ossobuco passa sete horas. Não há atalho — e não há pressa para virar a mesa.</p>
+      </article>
+      <article class="chapter" data-reveal>
+        <h2>Uma carta, não um catálogo.</h2>
+        <p>Oito entradas, seis massas, quatro peixes e carnes. A sommelier escolhe doze rótulos do Piemonte e do Vêneto. Se quiser o copo, pede o copo.</p>
+      </article>
+      <article class="chapter" data-reveal>
+        <h2>A sala é o produto.</h2>
+        <p>Quarenta e dois lugares, luz baixa, cozinha à vista. Terça a sábado a partir das 19h. Domingo só para eventos fechados.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="essay">
+    <img class="tall" data-clip src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Mesa posta" />
+    <img data-clip src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=80" alt="Massa" />
+    <img data-clip src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Sala à noite" />
+  </div>
+
+  <section class="menu-list" id="carta">
+    <h2 data-reveal>Carta de temporada</h2>
+    <p class="lead" data-reveal>Março · muda com a lua. Reserva garante o risotto do dia.</p>
+    <article class="row" data-reveal>
+      <span class="n">01</span>
+      <div><h3>Burrata ao fogo</h3><p>Tomate assado, azeite da Ligúria, manjericão.</p></div>
+      <span class="price">R$ 64</span>
+    </article>
+    <article class="row" data-reveal>
+      <span class="n">02</span>
+      <div><h3>Tagliatelle al ragù</h3><p>Ossobuco sete horas, parmesão 24 meses.</p></div>
+      <span class="price">R$ 89</span>
+    </article>
+    <article class="row" data-reveal>
+      <span class="n">03</span>
+      <div><h3>Risotto do dia</h3><p>Hoje: ossobuco e limão siciliano. Doze porções.</p></div>
+      <span class="price">R$ 96</span>
+    </article>
+    <article class="row" data-reveal>
+      <span class="n">04</span>
+      <div><h3>Branzino na brasa</h3><p>Funcho, noisette, raspas de limão.</p></div>
+      <span class="price">R$ 128</span>
+    </article>
+    <article class="row" data-reveal>
+      <span class="n">05</span>
+      <div><h3>Tiramisu da casa</h3><p>Mascarpone, café da máquina, sem atalho.</p></div>
+      <span class="price">R$ 38</span>
+    </article>
+  </section>
+
+  <section class="film" id="sala">
+    <div class="film-head">
+      <h2 data-reveal>A noite, em fotogramas</h2>
+      <p class="lead" data-reveal>Deslize. A sala, a massa, o fogo.</p>
+    </div>
+    <div class="film-track">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Entrada" />
+        <figcaption>Burrata ao fogo</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=80" alt="Massa" />
+        <figcaption>Tagliatelle</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Peixe" />
+        <figcaption>Branzino na brasa</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Sala" />
+        <figcaption>A sala às 21h</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Mesa" />
+        <figcaption>Mesa longa</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="band">
-    <div data-speed="0.15" style="position:absolute;inset:-18%;background:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=2000&q=80') center/cover;filter:brightness(.32)"></div>
+    <div class="band-bg" data-speed="0.14" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=2000&q=80')"></div>
     <q>“Nenhuma mesa vira em menos de duas horas.”</q>
   </section>
 
-  <section class="wrap" id="noite">
-    <h2 data-reveal>A noite, em profundidade</h2>
-    <p class="lead" data-reveal>Clique nos fotogramas. Eles orbitam em profundidade.</p>
-    <div class="cover">
-      <div class="cover-track" data-cover data-shots='["https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1544025162-d766403159a1?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80"]'></div>
-    </div>
+  <section class="depos">
+    <blockquote class="depo" data-reveal>“Pedi o risotto. Voltei na lua seguinte.”<strong>Marina · Vila Madalena</strong></blockquote>
+    <blockquote class="depo" data-reveal>“A carta de vinhos cabe numa página. Isso é respeito.”<strong>Paulo · Pinheiros</strong></blockquote>
+    <blockquote class="depo" data-reveal>“Saímos às 23h. Ninguém apressou a conta.”<strong>Lia · Jardins</strong></blockquote>
   </section>
 
-  <section class="wrap" id="reserva">
-    <div class="split">
-      <div data-reveal>
+  <section class="close" id="reserva">
+    <div class="close-copy">
+      <div>
         <h2>A mesa é o produto.</h2>
-        <p class="lead">Rua dos Pinheiros, 1480. Ter–Sáb a partir das 19h. @osterialuce</p>
-        <a class="btn btn-a filled" data-magnetic href="https://wa.me/5511996077349" target="_blank" rel="noopener">Reservar no WhatsApp</a>
+        <p>Rua dos Pinheiros, 1480. Ter–Sáb a partir das 19h. Domingo só evento. @osterialuce</p>
       </div>
-      <form data-demo data-reveal>
+      <p><a class="btn filled" data-magnetic href="https://wa.me/5511996077349" target="_blank" rel="noopener">Reservar no WhatsApp</a></p>
+    </div>
+    <div class="panel">
+      <form data-demo>
         <input type="text" placeholder="Nome" required />
         <input type="tel" placeholder="WhatsApp" required />
-        <select><option>2 pessoas</option><option>4 pessoas</option><option>Mesa longa</option></select>
+        <select>
+          <option>2 pessoas</option>
+          <option>4 pessoas</option>
+          <option>Mesa longa</option>
+        </select>
         <textarea placeholder="Data, hora e restrição"></textarea>
-        <button class="btn btn-a filled" data-magnetic type="submit">Pedir reserva</button>
+        <button class="btn filled" data-magnetic type="submit">Pedir reserva</button>
         <p class="ok">Recebido. Este é um exemplo — nenhum dado foi enviado.</p>
       </form>
+      <div class="faq" style="margin-top:28px">
+        <div data-faq-item><button type="button">Precisa reservar? <span>+</span></button><p>Sim. Walk-in só se abrir furo depois das 21h30.</p></div>
+        <div data-faq-item><button type="button">Estacionamento? <span>+</span></button><p>Valet na porta, terça a sábado. Manobrista da casa.</p></div>
+        <div data-faq-item><button type="button">Infantil? <span>+</span></button><p>A sala é adulta. Sem cadeira alta, sem prato kids.</p></div>
+      </div>
     </div>
   </section>
-  <footer class="site"><span>Osteria Luce · Premium ATTO</span><span>Cena 3D · Pinheiros</span></footer>
+  <footer class="site"><span>Osteria Luce · Premium ATTO</span><a href="#topo">Topo</a></footer>
   <script src="./assets/premium.js"></script>
 </body>
 </html>

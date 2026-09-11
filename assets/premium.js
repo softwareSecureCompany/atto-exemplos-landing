@@ -15,9 +15,13 @@
   burger?.addEventListener("click", () => menu?.classList.toggle("open"));
   menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => menu.classList.remove("open")));
 
+  document.querySelectorAll("[data-faq-item]").forEach((item) => {
+    item.querySelector("button")?.addEventListener("click", () => item.classList.toggle("open"));
+  });
+
   const bar = document.querySelector("[data-progress]");
   const layers = [...document.querySelectorAll("[data-speed]")];
-  const reveals = [...document.querySelectorAll("[data-reveal]")];
+  const reveals = [...document.querySelectorAll("[data-reveal], [data-clip]")];
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -37,6 +41,26 @@
     line.innerHTML = `<span>${text}</span>`;
   });
   requestAnimationFrame(() => document.body.classList.add("booted"));
+
+  document.querySelectorAll("[data-count]").forEach((el) => {
+    const target = Number(el.dataset.count);
+    const suffix = el.dataset.suffix || "";
+    const countIo = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min(1, (now - start) / 1200);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = `${Math.round(target * eased)}${suffix}`;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        countIo.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    countIo.observe(el);
+  });
 
   if (fine && !reduce) {
     const cur = document.querySelector("[data-cursor]");
@@ -79,7 +103,7 @@
         const r = card.getBoundingClientRect();
         const px = (e.clientX - r.left) / r.width - 0.5;
         const py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `rotateY(${px * 14}deg) rotateX(${-py * 10}deg) translateZ(18px)`;
+        card.style.transform = `rotateY(${px * 10}deg) rotateX(${-py * 7}deg)`;
       });
       card.addEventListener("mouseleave", () => {
         card.style.transform = "";
@@ -90,12 +114,21 @@
   const canvas = document.querySelector("[data-ambient]");
   if (canvas && !reduce) {
     const ctx = canvas.getContext("2d");
-    const dots = Array.from({ length: 46 }, () => ({
+    const css = getComputedStyle(document.documentElement);
+    const accent = css.getPropertyValue("--accent").trim() || "#d4b483";
+    const rgb = accent.startsWith("#")
+      ? [
+          parseInt(accent.slice(1, 3), 16),
+          parseInt(accent.slice(3, 5), 16),
+          parseInt(accent.slice(5, 7), 16),
+        ]
+      : [212, 180, 131];
+    const motes = Array.from({ length: 28 }, () => ({
       x: Math.random(),
       y: Math.random(),
-      z: 0.3 + Math.random() * 0.7,
-      vx: (Math.random() - 0.5) * 0.00025,
-      vy: (Math.random() - 0.5) * 0.00025,
+      z: 0.25 + Math.random() * 0.75,
+      vx: (Math.random() - 0.5) * 0.00018,
+      vy: -0.00012 - Math.random() * 0.0002,
     }));
     const fit = () => {
       canvas.width = innerWidth * devicePixelRatio;
@@ -107,58 +140,19 @@
       const w = canvas.width;
       const h = canvas.height;
       ctx.clearRect(0, 0, w, h);
-      ctx.lineWidth = 1 * devicePixelRatio;
-      dots.forEach((a, i) => {
+      motes.forEach((a) => {
         a.x += a.vx;
         a.y += a.vy;
+        if (a.y < -0.02) a.y = 1.02;
         if (a.x < 0 || a.x > 1) a.vx *= -1;
-        if (a.y < 0 || a.y > 1) a.vy *= -1;
-        const ax = a.x * w, ay = a.y * h;
-        ctx.fillStyle = `rgba(255,255,255,${0.12 * a.z})`;
+        ctx.fillStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${0.18 * a.z})`;
         ctx.beginPath();
-        ctx.arc(ax, ay, 1.4 * a.z * devicePixelRatio, 0, Math.PI * 2);
+        ctx.arc(a.x * w, a.y * h, 1.6 * a.z * devicePixelRatio, 0, Math.PI * 2);
         ctx.fill();
-        for (let j = i + 1; j < dots.length; j++) {
-          const b = dots[j];
-          const dx = a.x - b.x, dy = a.y - b.y;
-          const d = Math.hypot(dx, dy);
-          if (d < 0.16) {
-            ctx.strokeStyle = `rgba(255,255,255,${(0.16 - d) * 0.7})`;
-            ctx.beginPath();
-            ctx.moveTo(ax, ay);
-            ctx.lineTo(b.x * w, b.y * h);
-            ctx.stroke();
-          }
-        }
       });
       requestAnimationFrame(draw);
     };
     draw();
-  }
-
-  const track = document.querySelector("[data-cover]");
-  if (track) {
-    const shots = JSON.parse(track.dataset.shots || "[]");
-    let active = Math.min(2, shots.length - 1);
-    const render = () => {
-      track.innerHTML = "";
-      shots.forEach((src, i) => {
-        const d = i - active;
-        const el = document.createElement("button");
-        el.type = "button";
-        el.className = "cover-card";
-        el.innerHTML = `<img src="${src}" alt="" />`;
-        el.style.transform = `translateX(${d * 210}px) translateZ(${-Math.abs(d) * 170}px) rotateY(${d * -26}deg)`;
-        el.style.filter = `brightness(${1 - Math.abs(d) * 0.22})`;
-        el.style.zIndex = String(20 - Math.abs(d));
-        el.onclick = () => {
-          active = i;
-          render();
-        };
-        track.appendChild(el);
-      });
-    };
-    render();
   }
 
   if (reduce) {
@@ -172,16 +166,25 @@
     my = e.clientY / innerHeight - 0.5;
   });
 
-  const world = document.querySelector("[data-world]");
+  const heroMedia = document.querySelector("[data-hero-media]");
+  const heroCopy = document.querySelector(".stage-copy");
   const tick = () => {
     const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
     if (bar) bar.style.transform = `scaleX(${scrollY / max})`;
     tx += (mx - tx) * 0.06;
     ty += (my - ty) * 0.06;
-    if (world) world.style.transform = `rotateY(${tx * 14}deg) rotateX(${-ty * 7}deg)`;
+    if (heroMedia) {
+      const y = Math.min(scrollY, innerHeight);
+      heroMedia.style.transform = `translate3d(${tx * 18}px, ${y * 0.22}px, 0) scale(1.08)`;
+    }
+    if (heroCopy) {
+      const fade = Math.max(0, 1 - scrollY / (innerHeight * 0.7));
+      heroCopy.style.opacity = String(fade);
+      heroCopy.style.transform = `translateY(${scrollY * -0.12}px)`;
+    }
     layers.forEach((el) => {
       const speed = Number(el.dataset.speed) || 0.2;
-      el.style.transform = `translate3d(${tx * speed * 40}px, ${scrollY * speed * 0.35}px, 0)`;
+      el.style.transform = `translate3d(${tx * speed * 40}px, ${scrollY * speed * 0.28}px, 0)`;
     });
     requestAnimationFrame(tick);
   };
