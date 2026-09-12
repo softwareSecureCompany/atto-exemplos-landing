@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;

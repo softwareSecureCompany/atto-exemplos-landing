@@ -25,7 +25,7 @@ export default function OsteriaPage() {
   return (
     <div className={`${sans.className} bg-[#0b0a09] text-[#f3ead8]`}>
       <PremiumFx accent="#d4b483" />
-      <DemoBar plan="Premium · R$ 1.250" />
+      <DemoBar plan="Essencial  R$ 597" />
       <header className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#0b0a09]/55 px-5 py-4 backdrop-blur-xl">
         <a href="#topo" className={`${display.className} text-2xl`}>
           Osteria Luce
@@ -33,6 +33,7 @@ export default function OsteriaPage() {
         <nav className="hidden gap-6 text-[11px] tracking-[0.16em] uppercase text-[#b7aa98] md:flex">
           <a href="#casa">A casa</a>
           <a href="#carta">Carta</a>
+          <a href="#noite">A noite</a>
           <a href="#reserva">Reserva</a>
         </nav>
         <a href={WA} target="_blank" rel="noopener" className="rounded-full bg-[#25d366] px-3.5 py-2 text-xs font-extrabold text-[#062d14]">
@@ -110,6 +111,65 @@ export default function OsteriaPage() {
         ))}
       </section>
 
+      <section id="noite" className="mx-auto max-w-[1180px] px-6 py-24">
+        <p className="text-[11px] tracking-[0.24em] text-[#b7aa98] uppercase">A noite</p>
+        <h2 className={`${display.className} mt-3 max-w-[14ch] text-[clamp(2.4rem,5vw,4rem)]`}>Como a mesa acontece</h2>
+        <div className="mt-12 grid gap-10 md:grid-cols-3">
+          {[
+            ["19h", "Chegada", "A porta abre. Sem fila na calçada. O casaco some, a água chega."],
+            ["19h20", "Carta", "Cinco pratos, quatro vinhos. O chef fala o que falta se perguntar."],
+            ["21h", "A mesa fica", "Ninguém empurra a conta. Mínimo duas horas. Sobremesa se quiser."],
+          ].map(([hora, nome, texto]) => (
+            <Reveal key={hora}>
+              <article>
+                <p className={`${display.className} text-2xl text-[#d4b483]`}>{hora}</p>
+                <h3 className={`${display.className} mt-3 text-[1.8rem] leading-none`}>{nome}</h3>
+                <p className="mt-3 max-w-[28ch] text-[#b7aa98]">{texto}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-[1180px]">
+          <h2 className={`${display.className} text-[clamp(2.2rem,4vw,3.4rem)]`}>Quatro vinhos. Sem carta de 40 páginas.</h2>
+          <div className="mt-10">
+            {[
+              ["Vermentino 2023", "Ligúria. Com a burrata.", "R$ 42 taça"],
+              ["Barbera d'Alba", "O vinho da casa. Vai no ragù.", "R$ 48 taça"],
+              ["Etna Bianco", "O branzino pede isso.", "R$ 56 taça"],
+              ["Prosecco col fundo", "Fecha a mesa. Sem doce demais.", "R$ 38 taça"],
+            ].map(([nome, texto, preco]) => (
+              <article key={nome} className="grid items-baseline gap-2 border-t border-white/10 py-5 last:border-b md:grid-cols-[1fr_auto]">
+                <div>
+                  <h3 className={`${display.className} text-[1.5rem] leading-none`}>{nome}</h3>
+                  <p className="mt-2 text-[#b7aa98]">{texto}</p>
+                </div>
+                <p className="font-bold text-[#d4b483]">{preco}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1180px] px-6 py-24">
+        <h2 className={`${display.className} text-[clamp(2.2rem,4vw,3.4rem)]`}>Quem voltou</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {[
+            ["A massa chegou no ponto. A mesa não virou em cima da gente.", "Camila R.", "Pinheiros"],
+            ["O risotto do dia valeu a reserva. Doze porções, a gente pegou a última.", "Eduardo M.", "Vila Madalena"],
+            ["Duas horas. Ninguém empurrou a conta. É isso que eu pago.", "Helena S.", "Itaim"],
+          ].map(([quote, name, place]) => (
+            <article key={name} className="border border-white/10 p-6">
+              <p className={`${display.className} text-[1.35rem] leading-snug italic`}>“{quote}”</p>
+              <p className="mt-5 text-sm font-bold">{name}</p>
+              <p className="mt-1 text-xs text-[#b7aa98]">{place}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="relative min-h-[70vh] overflow-hidden">
         <Image src="/thumbs/premium-restaurante.jpg" alt="" fill className="object-cover brightness-[0.32]" sizes="100vw" />
         <q className={`${display.className} relative z-10 grid min-h-[70vh] place-items-center px-6 text-center text-[clamp(2rem,5vw,3.8rem)] italic`}>
@@ -121,7 +181,9 @@ export default function OsteriaPage() {
         <div className="flex min-h-[420px] flex-col justify-between border border-white/10 bg-[#161210] p-10">
           <div>
             <h2 className={`${display.className} text-4xl`}>A mesa é o produto.</h2>
-            <p className="mt-4 max-w-[36ch] text-[#b7aa98]">Rua dos Pinheiros, 1480. Ter–Sáb a partir das 19h.</p>
+            <p className="mt-4 max-w-[36ch] text-[#b7aa98]">
+              Rua dos Pinheiros, 1480. Ter–Sáb a partir das 19h. Última entrada 21h30. Cozinha fecha 23h.
+            </p>
           </div>
           <Magnetic>
             <a href={WA} target="_blank" rel="noopener" className="inline-flex rounded-full bg-[#d4b483] px-5 py-3 text-sm font-bold text-[#0b0a09]">
@@ -145,13 +207,15 @@ export default function OsteriaPage() {
               items={[
                 { q: "Precisa reservar?", a: "Sim. Walk-in só se abrir furo depois das 21h30." },
                 { q: "Estacionamento?", a: "Valet na porta, terça a sábado." },
+                { q: "Criança?", a: "Até as 20h. Depois a sala fica quieta." },
+                { q: "Aniversário?", a: "Bolo da casa se avisar. Sem som, sem faixas." },
               ]}
             />
           </div>
         </div>
       </section>
       <footer className="flex justify-between px-6 py-7 text-[11px] tracking-widest text-[#b7aa98] uppercase">
-        <span>Osteria Luce · Premium</span>
+        <span>Osteria Luce  Pinheiros</span>
         <a href="#topo">Topo</a>
       </footer>
     </div>

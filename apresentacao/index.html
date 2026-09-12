@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATTO — Exemplos de landing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bone: #f8f5f1;
+      --sand: #ede7df;
+      --stone: #a8a49f;
+      --ink: #0d0b09;
+      --muted: #504c49;
+      --border: #d4d0cb;
+      --slide-w: 1920px;
+      --slide-h: 1080px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%; height: 100%;
+      background: #111;
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    #viewport { width: 100%; height: 100%; display: grid; place-items: center; }
+    #scaler { position: relative; overflow: hidden; }
+    #stage {
+      width: var(--slide-w);
+      height: var(--slide-h);
+      position: absolute; top: 0; left: 0;
+      background: var(--bone);
+      transform-origin: top left;
+    }
+    .slide {
+      position: absolute; inset: 0;
+      display: none;
+      padding: 64px 80px 72px;
+    }
+    .slide.active { display: flex; flex-direction: column; }
+    .top {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 22px; border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .top img { height: 26px; width: auto; }
+    .top span, .foot {
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+    }
+    .foot {
+      margin-top: auto; padding-top: 22px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; gap: 16px;
+    }
+    h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 88px; font-weight: 400; line-height: .92; letter-spacing: -.03em;
+    }
+    h1 em { font-style: italic; color: var(--muted); }
+    h2 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 56px; font-weight: 400; line-height: 1; letter-spacing: -.02em;
+    }
+    .lead { margin-top: 22px; font-size: 22px; line-height: 1.55; color: var(--muted); max-width: 38ch; }
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; flex: 1; }
+    .plan {
+      background: #fff; border: 1px solid var(--border); padding: 36px 32px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .plan .n { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .plan h3 { font-family: "Instrument Serif", Georgia, serif; font-size: 40px; font-weight: 400; }
+    .plan .price { font-family: "Instrument Serif", Georgia, serif; font-size: 52px; letter-spacing: -.03em; line-height: 1; }
+    .plan .price small { font-size: 18px; color: var(--muted); font-family: Inter, sans-serif; letter-spacing: 0; }
+    .plan ul { margin-top: 8px; list-style: none; color: var(--muted); font-size: 18px; line-height: 1.7; }
+    .plan ul li { padding-left: 18px; position: relative; }
+    .plan ul li::before { content: "·"; position: absolute; left: 0; color: var(--ink); }
+    .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; flex: 1; min-height: 0; }
+    .ex { display: flex; flex-direction: column; min-height: 0; }
+    .frame {
+      flex: 1; min-height: 0;
+      background: #fff; border: 1px solid var(--border);
+      overflow: hidden; display: flex;
+    }
+    .frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .ex h3 { font-family: "Instrument Serif", Georgia, serif; font-size: 28px; font-weight: 400; margin-top: 16px; }
+    .ex p { color: var(--muted); font-size: 16px; margin-top: 4px; }
+    .grid6 {
+      display: grid; grid-template-columns: 180px 1fr 1fr 1fr;
+      gap: 0; border: 1px solid var(--border); background: var(--border); flex: 1;
+    }
+    .grid6 > * { background: #fff; padding: 22px 24px; font-size: 18px; }
+    .grid6 .h { background: var(--sand); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .grid6 .k { font-weight: 600; }
+    .close { display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; flex: 1; align-items: center; }
+    .url {
+      font-size: 28px; color: var(--ink); border-bottom: 1px solid var(--ink);
+      padding-bottom: 8px; display: inline-block; margin-top: 28px;
+    }
+    .hint { position: fixed; right: 18px; bottom: 14px; z-index: 9; color: #888; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    body.printing .hint { display: none; }
+  </style>
+</head>
+<body>
+  <div id="viewport"><div id="scaler"><div id="stage">
+
+    <section class="slide active">
+      <div class="top"><img src="../atto-logo.png" alt="ATTO" /><span>Estúdio digital · São Paulo</span></div>
+      <p style="font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">Landing pages · apresentação comercial</p>
+      <h1>Nove exemplos.<br /><em>Você escolhe o nível.</em></h1>
+      <p class="lead">Isto é uma prévia visual. O 3D, o menu e o WhatsApp valem na página ao vivo — o PDF só mostra o recorte de cada plano.</p>
+      <div class="foot"><span>ATTO · 2026</span><span>01 / 07</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><img src="../atto-logo.png" alt="ATTO" /><span>Como escolher</span></div>
+      <h2>Três planos. Mesma marca, profundidade diferente.</h2>
+      <p class="lead" style="margin-bottom:36px">Escolha pelo que a página precisa fazer — não pelo nicho. Qualquer exemplo vira a cara do seu negócio.</p>
+      <div class="plans">
+        <article class="plan">
+          <span class="n">01</span>
+          <h3>Básico</h3>
+          <p class="price">R$ 297<small>,00</small></p>
+          <ul>
+            <li>Menu + 3 seções</li>
+            <li>Hero, sobre e contato</li>
+            <li>Uma oferta, um WhatsApp</li>
+            <li>Para quem quer existir bem, rápido</li>
+          </ul>
+        </article>
+        <article class="plan">
+          <span class="n">02</span>
+          <h3>Essencial</h3>
+          <p class="price">R$ 597<small>,00</small></p>
+          <ul>
+            <li>Até 5 seções</li>
+            <li>Serviços, prova social, SEO</li>
+            <li>Página de campanha completa</li>
+            <li>Para quem precisa converter com clareza</li>
+          </ul>
+        </article>
+        <article class="plan">
+          <span class="n">03</span>
+          <h3>Premium</h3>
+          <p class="price">R$ 1.250<small>,00</small></p>
+          <ul>
+            <li>Até 8 seções</li>
+            <li>Cena 3D, parallax, galeria</li>
+            <li>Instagram e ritmo de marca</li>
+            <li>Para quem quer presença de outro nível</li>
+          </ul>
+        </article>
+      </div>
+      <div class="foot"><span>ATTO · 2026</span><span>02 / 07</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><img src="../atto-logo.png" alt="ATTO" /><span>Plano Básico · R$ 297,00 · 3 seções + menu</span></div>
+      <h2 style="margin-bottom:28px">Básico · R$ 297,00</h2>
+      <div class="trio">
+        <article class="ex">
+          <div class="frame"><img src="./shots/basico-hidraulica.jpg" alt="Hidráulica RapidFix" /></div>
+          <h3>Hidráulica RapidFix</h3>
+          <p>Encanador · direto ao WhatsApp</p>
+        </article>
+        <article class="ex">
+          <div class="frame"><img src="./shots/basico-manicure.jpg" alt="Unhas da Ju" /></div>
+          <h3>Unhas da Ju</h3>
+          <p>Manicure · agenda no bairro</p>
+        </article>
+        <article class="ex">
+          <div class="frame"><img src="./shots/basico-personal.jpg" alt="Treino com Marcelo" /></div>
+          <h3>Treino com Marcelo</h3>
+          <p>Personal · uma oferta, um botão</p>
+        </article>
+      </div>
+      <div class="foot"><span>ATTO · 2026</span><span>03 / 07</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><img src="../atto-logo.png" alt="ATTO" /><span>Plano Essencial · R$ 597,00 · até 5 seções · SEO</span></div>
+      <h2 style="margin-bottom:28px">Essencial · R$ 597,00</h2>
+      <div class="trio">
+        <article class="ex">
+          <div class="frame"><img src="./shots/essencial-barbearia.jpg" alt="Barbearia Cavalera" /></div>
+          <h3>Barbearia Cavalera</h3>
+          <p>Serviços, depoimentos, agendamento</p>
+        </article>
+        <article class="ex">
+          <div class="frame"><img src="./shots/essencial-odonto.jpg" alt="Clínica Sorriso e Cia" /></div>
+          <h3>Sorriso &amp; Cia</h3>
+          <p>Clínica · tratamentos e prova social</p>
+        </article>
+        <article class="ex">
+          <div class="frame"><img src="./shots/essencial-imobiliaria.jpg" alt="Imobiliária Ninho Certo" /></div>
+          <h3>Ninho Certo</h3>
+          <p>Imóveis · captação de lead</p>
+        </article>
+      </div>
+      <div class="foot"><span>ATTO · 2026</span><span>04 / 07</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><img src="../atto-logo.png" alt="ATTO" /><span>Plano Premium · R$ 1.250,00 · até 8 seções · 3D</span></div>
+      <h2 style="margin-bottom:28px">Premium · R$ 1.250,00</h2>
+      <div class="trio">
+        <article class="ex">
+          <div class="frame"><img src="./shots/premium-restaurante.jpg" alt="Osteria Luce" /></div>
+          <h3>Osteria Luce</h3>
+          <p>Hero 3D, pratos com tilt, órbita</p>
+        </article>
+        <article class="ex">
+          <div class="frame"><img src="./shots/premium-arquitetura.jpg" alt="Atelier Ângulo" /></div>
+          <h3>Atelier Ângulo</h3>
+          <p>Planos no espaço, deck dos projetos</p>
+        </article>
+        <article class="ex">
+          <div class="frame"><img src="./shots/premium-spa.jpg" alt="Casa Aura Spa" /></div>
+          <h3>Casa Aura Spa</h3>
+          <p>Vidro em volume, orbs, leque 3D</p>
+        </article>
+      </div>
+      <div class="foot"><span>ATTO · 2026</span><span>05 / 07</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><img src="../atto-logo.png" alt="ATTO" /><span>Comparativo</span></div>
+      <h2 style="margin-bottom:28px">O que entra em cada plano</h2>
+      <div class="grid6">
+        <div class="h"></div>
+        <div class="h">Básico</div>
+        <div class="h">Essencial</div>
+        <div class="h">Premium</div>
+        <div class="k">Seções</div>
+        <div>3 + menu</div>
+        <div>Até 5</div>
+        <div>Até 8</div>
+        <div class="k">Conteúdo</div>
+        <div>Hero, sobre, contato</div>
+        <div>+ serviços e depoimentos</div>
+        <div>+ galeria, social, experiência</div>
+        <div class="k">SEO</div>
+        <div>Título e WhatsApp</div>
+        <div>Title, meta, estrutura</div>
+        <div>SEO + ritmo de marca</div>
+        <div class="k">Movimento</div>
+        <div>Página estática</div>
+        <div>Transições leves</div>
+        <div>3D, parallax, tilt</div>
+        <div class="k">Investimento</div>
+        <div>R$ 297,00</div>
+        <div>R$ 597,00</div>
+        <div>R$ 1.250,00</div>
+        <div class="k">Quando escolher</div>
+        <div>Presença direta</div>
+        <div>Campanha que converte</div>
+        <div>Marca que quer impressionar</div>
+      </div>
+      <div class="foot"><span>ATTO · 2026</span><span>06 / 07</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="top"><img src="../atto-logo.png" alt="ATTO" /><span>Próximo passo</span></div>
+      <div class="close">
+        <div>
+          <h1>Abra os exemplos.<br /><em>Marque o que combina.</em></h1>
+          <p class="lead">Diga o plano e o nicho de referência. A gente adapta copy, cor e fotos para a sua marca — o exemplo só mostra o nível de entrega.</p>
+          <p class="lead" style="margin-top:12px">Básico R$ 297,00 · Essencial R$ 597,00 · Premium R$ 1.250,00</p>
+          <p class="url">atto-exemplos-landing.vercel.app</p>
+        </div>
+        <div class="plan">
+          <span class="n">Falar com a ATTO</span>
+          <h3>WhatsApp</h3>
+          <ul>
+            <li>+55 11 99607-7349</li>
+            <li>@agencia.atto</li>
+            <li>attoagencia.ofc@gmail.com</li>
+            <li>Resposta no mesmo dia útil</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot"><span>ATTO · 2026</span><span>07 / 07</span></div>
+    </section>
+
+  </div></div></div>
+  <p class="hint">← → para passar os slides</p>
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const stage = document.getElementById("stage");
+    const scaler = document.getElementById("scaler");
+    const viewport = document.getElementById("viewport");
+    let i = 0;
+    const show = (n) => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle("active", k === i));
+    };
+    const fit = () => {
+      const s = Math.min(viewport.clientWidth / 1920, viewport.clientHeight / 1080);
+      scaler.style.width = 1920 * s + "px";
+      scaler.style.height = 1080 * s + "px";
+      stage.style.transform = "scale(" + s + ")";
+    };
+    addEventListener("resize", fit);
+    addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === " ") show(i + 1);
+      if (e.key === "ArrowLeft") show(i - 1);
+    });
+    fit();
+  </script>
+</body>
+</html>

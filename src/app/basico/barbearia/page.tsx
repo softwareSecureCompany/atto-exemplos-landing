@@ -16,7 +16,7 @@ export default function CavaleraPage() {
   return (
     <div className={`${sans.className} bg-[#100e0c] text-[#f3ece4]`}>
       <ScrollProgress className="bg-[#c1121f]" />
-      <DemoBar plan="Essencial · R$ 597" />
+      <DemoBar plan="Básico  R$ 297" />
       <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#2e2924] bg-[#100e0c]/80 px-5 py-4 backdrop-blur-lg">
         <a href="#inicio" className={`${display.className} text-2xl tracking-[0.14em]`}>
           CAVALERA

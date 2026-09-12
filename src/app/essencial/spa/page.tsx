@@ -25,7 +25,7 @@ export default function AuraPage() {
   return (
     <div className={`${sans.className} bg-[#121a16] text-[#f4efe6]`}>
       <PremiumFx accent="#e7c8c0" />
-      <DemoBar plan="Premium · R$ 1.250" />
+      <DemoBar plan="Essencial  R$ 597" />
       <header className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#121a16]/60 px-5 py-4 backdrop-blur-xl">
         <a href="#topo" className={`${display.className} text-2xl`}>
           Casa Aura
@@ -33,6 +33,7 @@ export default function AuraPage() {
         <nav className="hidden gap-6 text-[11px] tracking-[0.16em] uppercase text-[#9aa89f] md:flex">
           <a href="#casa">A casa</a>
           <a href="#rituais">Rituais</a>
+          <a href="#chegada">Chegada</a>
           <a href="#agenda">Agenda</a>
         </nav>
         <a href={WA} target="_blank" rel="noopener" className="rounded-full bg-[#25d366] px-3.5 py-2 text-xs font-extrabold text-[#062d14]">
@@ -93,6 +94,61 @@ export default function AuraPage() {
         ))}
       </section>
 
+      <section id="chegada" className="mx-auto max-w-[1180px] px-6 py-24">
+        <p className="text-[11px] tracking-[0.24em] text-[#9aa89f] uppercase">A chegada</p>
+        <h2 className={`${display.className} mt-3 max-w-[14ch] text-[clamp(2.4rem,5vw,4rem)]`}>Você não cruza com ninguém.</h2>
+        <div className="mt-12 grid gap-10 md:grid-cols-4">
+          {[
+            ["10 min", "Chá", "Sala sozinha. Sem recepção falando alto."],
+            ["Ritual", "A sala", "Luz baixa, óleo quente. A terapeuta entra depois de você."],
+            ["15 min", "Descanso", "Não te empurram para o corredor. O corpo volta no seu tempo."],
+            ["Saída", "Rua", "Outra pessoa só entra quando você já saiu."],
+          ].map(([n, t, d]) => (
+            <Reveal key={t}>
+              <article>
+                <p className="text-[11px] tracking-[0.18em] text-[#e7c8c0] uppercase">{n}</p>
+                <h3 className={`${display.className} mt-3 text-[1.8rem] leading-none`}>{t}</h3>
+                <p className="mt-3 max-w-[24ch] text-[#9aa89f]">{d}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-white/10 px-6 py-24">
+        <div className="mx-auto grid max-w-[1180px] gap-10 md:grid-cols-2">
+          <div>
+            <h2 className={`${display.className} text-[clamp(2.2rem,4vw,3.4rem)]`}>Quando não marcar</h2>
+            <p className="mt-4 max-w-[40ch] text-[#9aa89f]">
+              Febre, infecção de pele, trombose recente. Gestante só no ritual de gestante. Avisa o que o corpo não aguenta.
+            </p>
+          </div>
+          <div>
+            <h2 className={`${display.className} text-[clamp(2.2rem,4vw,3.4rem)]`}>Vale presente</h2>
+            <p className="mt-4 max-w-[40ch] text-[#9aa89f]">
+              Cartão físico ou PDF. Vale 6 meses. Day spa e pedra quente são os que mais saem.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1180px] px-6 py-24">
+        <h2 className={`${display.className} text-[clamp(2.2rem,4vw,3.4rem)]`}>Quem deitou aqui</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {[
+            ["Não cruzei com ninguém no corredor. Isso já vale o horário.", "Beatriz N.", "Higienópolis"],
+            ["O burnout de 90 min. Saí sem checklist na cabeça.", "Paulo H.", "Consolação"],
+            ["Day spa no aniversário. O jardim segura o almoço.", "Ana Luiza", "Pacaembu"],
+          ].map(([quote, name, place]) => (
+            <article key={name} className="border border-white/10 p-6">
+              <p className={`${display.className} text-[1.35rem] leading-snug italic`}>“{quote}”</p>
+              <p className="mt-5 text-sm font-bold">{name}</p>
+              <p className="mt-1 text-xs text-[#9aa89f]">{place}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="relative min-h-[64vh] overflow-hidden">
         <Image src="/thumbs/premium-spa.jpg" alt="" fill className="object-cover brightness-[0.32]" sizes="100vw" />
         <q className={`${display.className} relative z-10 grid min-h-[64vh] place-items-center px-6 text-center text-[clamp(2rem,5vw,3.8rem)] italic`}>
@@ -128,12 +184,14 @@ export default function AuraPage() {
               items={[
                 { q: "Cancelamento?", a: "Até 12 horas antes, sem custo." },
                 { q: "Vale presente?", a: "Cartão físico ou PDF. Vale 6 meses." },
+                { q: "Homem pode ir?", a: "Sim. A casa não separa. O corredor continua vazio." },
+                { q: "Estacionamento?", a: "Prédio ao lado. 2 horas com o ticket da casa." },
               ]}
             />
           </div>
         </div>
       </section>
-      <footer className="px-6 py-7 text-[11px] tracking-widest text-[#9aa89f] uppercase">Casa Aura · Premium</footer>
+      <footer className="px-6 py-7 text-[11px] tracking-widest text-[#9aa89f] uppercase">Casa Aura  Higienópolis</footer>
     </div>
   );
 }

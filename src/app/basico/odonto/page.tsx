@@ -16,7 +16,7 @@ export default function OdontoPage() {
   return (
     <div className={`${sans.className} bg-[#e7f3f1] text-[#163a3c]`}>
       <ScrollProgress className="bg-[#0b8f7a]" />
-      <DemoBar plan="Essencial · R$ 597" />
+      <DemoBar plan="Básico  R$ 297" />
       <header className="sticky top-0 z-30 px-4 pt-3">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between rounded-[22px] border border-[#b7d6d3] bg-[#e7f3f1]/80 px-5 py-3 backdrop-blur-lg">
           <a href="#inicio" className="text-lg font-extrabold text-[#0b8f7a]">

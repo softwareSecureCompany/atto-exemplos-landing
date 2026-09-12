@@ -24,7 +24,7 @@ export default function AnguloPage() {
   return (
     <div className={`${sans.className} bg-[#05060f] text-[#e8eaf2]`}>
       <PremiumFx accent="#3b5bff" />
-      <DemoBar plan="Premium · R$ 1.250" />
+      <DemoBar plan="Essencial  R$ 597" />
       <header className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#05060f]/60 px-5 py-4 backdrop-blur-xl">
         <a href="#topo" className={`${display.className} text-2xl`}>
           Ângulo
@@ -32,6 +32,7 @@ export default function AnguloPage() {
         <nav className="hidden gap-6 text-[11px] tracking-[0.16em] uppercase text-[#8b90a8] md:flex">
           <a href="#atelier">Atelier</a>
           <a href="#obras">Obras</a>
+          <a href="#prazo">Prazo</a>
           <a href="#contato">Contato</a>
         </nav>
         <a href={WA} target="_blank" rel="noopener" className="rounded-full bg-[#25d366] px-3.5 py-2 text-xs font-extrabold text-[#062d14]">
@@ -96,6 +97,61 @@ export default function AnguloPage() {
         ))}
       </section>
 
+      <section id="prazo" className="mx-auto max-w-[1180px] px-6 py-24">
+        <p className="text-[11px] tracking-[0.24em] text-[#8b90a8] uppercase">Prazo e honorário</p>
+        <h2 className={`${display.className} mt-3 max-w-[16ch] text-[clamp(2.4rem,5vw,4rem)]`}>O mês combinado vale.</h2>
+        <div className="mt-12 grid gap-10 md:grid-cols-3">
+          {[
+            ["Estudo", "3 a 5 semanas. Duas plantas. Uma reunião no meio."],
+            ["Executivo", "6 a 10 semanas. Memorial, quantitativo, visita de obra."],
+            ["Honorário", "A partir de 12% da obra. Residencial e comercial."],
+          ].map(([t, d]) => (
+            <Reveal key={t}>
+              <article className="border-t border-white/10 pt-5">
+                <h3 className={`${display.className} text-[1.8rem]`}>{t}</h3>
+                <p className="mt-3 max-w-[28ch] text-[#8b90a8]">{d}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-[1180px]">
+          <h2 className={`${display.className} text-[clamp(2.2rem,4vw,3.4rem)]`}>Para quem a gente abre a mesa</h2>
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
+            {[
+              ["Casa e apto", "Reforma total ou obra nova. Itaim, Higienópolis, Vila, litoral."],
+              ["Loja e escritório", "Vitrine, ateliê, clínica. Obra que não atrasa a abertura."],
+              ["Condomínio", "A gente lê a convenção antes de desenhar o que o síndico vai vetar."],
+              ["Fora de SP", "Litoral e interior. Visita mensal no canteiro."],
+            ].map(([t, d]) => (
+              <article key={t} className="border-t border-white/10 pt-5">
+                <h3 className={`${display.className} text-[1.6rem]`}>{t}</h3>
+                <p className="mt-2 max-w-[40ch] text-[#8b90a8]">{d}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1180px] px-6 py-24">
+        <h2 className={`${display.className} text-[clamp(2.2rem,4vw,3.4rem)]`}>Quem já construiu</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {[
+            ["A obra no Itaim fechou no mês. Isso não é comum em São Paulo.", "Mariana P.", "Casa Itaim"],
+            ["Duas plantas. Escolhi uma. Sem surpresa no memorial.", "Rafael C.", "Loja Vila Madalena"],
+            ["O atelier responde. Isso já é metade do projeto.", "Lúcia F.", "Apt. Higienópolis"],
+          ].map(([quote, name, place]) => (
+            <article key={name} className="border border-white/10 p-6">
+              <p className={`${display.className} text-[1.3rem] leading-snug italic`}>“{quote}”</p>
+              <p className="mt-5 text-sm font-bold">{name}</p>
+              <p className="mt-1 text-xs text-[#8b90a8]">{place}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="relative min-h-[64vh] overflow-hidden">
         <Image src="/thumbs/premium-arquitetura.jpg" alt="" fill className="object-cover brightness-[0.32]" sizes="100vw" />
         <q className={`${display.className} relative z-10 grid min-h-[64vh] place-items-center px-6 text-center text-[clamp(2rem,5vw,3.6rem)] italic`}>
@@ -125,13 +181,15 @@ export default function AnguloPage() {
             <Faq
               items={[
                 { q: "Atendem fora de SP?", a: "Litoral e interior com visita mensal." },
-                { q: "Só interiores?", a: "Arquitetura completa ou interiores — o método é o mesmo." },
+                { q: "Só interiores?", a: "Arquitetura completa ou interiores. O método é o mesmo." },
+                { q: "Quanto custa o estudo?", a: "O estudo entra no honorário se a obra seguir. Se parar, cobra-se o estudo." },
+                { q: "Fazem obra?", a: "Acompanhamos. A empreiteira é sua ou uma que a gente indica." },
               ]}
             />
           </div>
         </div>
       </section>
-      <footer className="px-6 py-7 text-[11px] tracking-widest text-[#8b90a8] uppercase">Atelier Ângulo · Premium</footer>
+      <footer className="px-6 py-7 text-[11px] tracking-widest text-[#8b90a8] uppercase">Atelier Ângulo  Vila Madalena</footer>
     </div>
   );
 }

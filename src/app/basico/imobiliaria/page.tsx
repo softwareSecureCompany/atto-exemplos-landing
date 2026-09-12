@@ -22,7 +22,7 @@ export default function NinhoPage() {
   return (
     <div className={`${sans.className} bg-[#eef2f6] text-[#1a2744]`}>
       <ScrollProgress className="bg-[#e07a3d]" />
-      <DemoBar plan="Essencial · R$ 597" />
+      <DemoBar plan="Básico  R$ 297" />
       <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#c9d2de] bg-[#eef2f6]/85 px-6 py-4 backdrop-blur-lg">
         <a href="#inicio" className="text-lg font-extrabold">
           Ninho Certo
